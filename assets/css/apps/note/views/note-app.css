@@ -1,0 +1,21 @@
+
+.note-index-container{
+
+}
+
+.sidebar-container{
+    width: 15vw;
+}
+
+.note-sidebar{
+    width: 15vw;
+}
+
+.note-content-container{
+    display: flex;
+}
+
+.note-list{
+    width: 85vw;
+    overflow-y: scroll;
+}

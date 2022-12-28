@@ -2,9 +2,9 @@
 const { useState, useEffect } = React
 // const { Link } = ReactRouterDOM
 
-import { noteList } from './../cmps/note-list.jsx';
-import { noteFilter } from './../cmps/note-filter.jsx';
-import { noteSideBar } from './../cmps/note-sidebar.jsx';
+import { NoteList } from './../cmps/note-list.jsx';
+import { NoteFilter } from './../cmps/note-filter.jsx'
+import { NoteSideBar } from './../cmps/note-sidebar.jsx';
 
 // import { showErrorMsg, showSuccessMsg } from './../../../services/event-bus.service';
 import { noteService } from './../services/note.service.js';
@@ -47,16 +47,21 @@ export function NoteIndex() {
             })
     }
 
-    return <section className="note-index full main-layout">
+    return <main className="note-index-container">
+        
         <div className="full main-layout">
+            {/* TODO: add filter function */}
+            <NoteFilter />
+            <div className="note-content-container">
+                <NoteSideBar />
+                <NoteList notes={notes} />
+            </div>
 
-            <NoteFilter onSetFilter={onSetFilter} />
-
-            {!isLoading && <NoteList notes={notes} onRemoveNote={onRemoveNote} />}
+            {!isLoading && <NoteList notes={notes} />}
             {isLoading && <div>Loading..</div>}
             {!notes.length && <div>No notes to show..</div>}
         </div>
-    </section>
+    </main>
 
 
 
