@@ -1,8 +1,16 @@
-export function MailList() {
+
+import { MailPreview } from "./mail-preview.jsx"
+
+export function MailList({mails}) {
 
 
+    console.log('from list',mails)
 
-    
-    return <div>Mail list</div>
+    return <section>
+        {mails.map(mail=>{
+            return <MailPreview key={mail.id} mail={mail}/>
+        })}
+    </section>
+        
 
 }

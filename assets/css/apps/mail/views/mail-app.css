@@ -1,0 +1,13 @@
+
+.mail-index-container{
+    display: flex;
+}
+
+.sidebar-container{
+   width: 15vw;
+}
+
+
+.mail-content-container{
+    width: 85vw;
+}
