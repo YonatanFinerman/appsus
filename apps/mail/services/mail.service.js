@@ -10,7 +10,7 @@ export const mailService = {
     get,
     remove,
     save,
-    // getDefaultFilter,
+    getDefaultCriteria,
     // getEmptyReview,
 }
 
@@ -46,6 +46,7 @@ function remove(mailId) {
 }
 
 function save(mail) {
+    // console.log(mail)
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
@@ -87,8 +88,7 @@ function _createMail(subject, name, body) {
 
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
-    console.log('from storage', mails)
-    console.log('from storage', mails)
+
     if (!mails || !mails.length) {
         mails = []
         mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
@@ -100,7 +100,6 @@ function _createMails() {
         mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
         mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
         utilService.saveToStorage(MAIL_KEY, mails)
-        console.log('from reg', mails)
 
     }
 }
@@ -117,6 +116,14 @@ function _createMails() {
 
 //     }
 // }
+
+// function getDefaultCriteria() {
+//     return { title: '', amount: '' }
+// }
+function getDefaultCriteria() {
+    return { isRead: false, txt: '', isStared: false, lables: [] ,status:'inbox'}
+}
+
 
 // const criteria = {
 //     status: 'inbox/sent/trash/draft',
