@@ -19,6 +19,12 @@
 .mail-sentAt{
     flex-basis: 10%; 
 }
+.mail-sentAt button{
+    border: none;
+    background: none;
+}
+
+
 .mail-prev-actions{
     display: flex;
     flex-basis: 15%;
