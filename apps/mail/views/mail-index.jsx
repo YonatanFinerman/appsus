@@ -23,12 +23,10 @@ export function MailIndex() {
     }
 
     return <main className="mail-index-container">
-        <div className="sidebar-container">
+        
         <MailFilter/>
-        </div>
-
+        
         <div className="mail-content-container">
-
         <MailSideBar/>
         <MailList mails={mails}/>
         </div>

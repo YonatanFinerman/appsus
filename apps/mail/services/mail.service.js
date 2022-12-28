@@ -71,33 +71,34 @@ function save(mail) {
 
 
 
-function _createMail(subject,name, body) {
+function _createMail(subject, name, body) {
     return {
         id: utilService.makeId(),
         subject,
         body,
+        name,
         isRead: false,
-        sentAt: Date.now() - utilService.getRandomIntInclusive(0, 63113904000),
-        from:`${name}@momo.com`,
-        to:null
+        sentAt: new Date(Date.now() - utilService.getRandomIntInclusive(0, 63113904000)).toLocaleDateString(),
+        from: `${name}@momo.com`,
+        to: null
 
     }
 }
 
-function _createMails(){
+function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     console.log('from storage', mails)
     console.log('from storage', mails)
     if (!mails || !mails.length) {
         mails = []
-        mails.push(_createMail('shrek','shrek','only shrek will fix this country\' problems vote for shrek '))
-        mails.push(_createMail('Netflix','Netflix','Your subscription is about to end plz give us your money'))
-        mails.push(_createMail('Work','bigboss','There is a new task you need to do for next week'))        
-        mails.push(_createMail('yerakot','moshe','tikne tapuhim'))        
-        mails.push(_createMail('yotvata','moti','Give me some milk'))        
-        mails.push(_createMail('order','ebay','Your order is on the way'))        
-        mails.push(_createMail('match','tinder','You have a new match with simon leviev'))        
-        mails.push(_createMail('sprint12','codingacademy','for this sprint youll need to create a function that returns happyness'))        
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
         utilService.saveToStorage(MAIL_KEY, mails)
         console.log('from reg', mails)
 
@@ -124,7 +125,7 @@ function _createMails(){
 //     isStared: true, // (optional property, if missing: show all)
 //     lables: ['important', 'romantic'] // has any of the labels
 //    }
-   
+
 
 
 

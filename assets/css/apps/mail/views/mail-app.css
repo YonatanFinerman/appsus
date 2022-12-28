@@ -1,13 +1,26 @@
 
 .mail-index-container{
     display: flex;
+    flex-direction: column;
+    height: calc(100vh-75px);
 }
 
 .sidebar-container{
    width: 15vw;
+
 }
 
 
 .mail-content-container{
+    
+    display: flex;
+}
+
+.mail-sidebar{
+    width: 15vw;
+}
+
+.mail-list{
     width: 85vw;
+    overflow-y: scroll;
 }
