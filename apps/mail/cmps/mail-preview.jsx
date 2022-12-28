@@ -1,28 +1,25 @@
 const { useState, useEffect } = React
 
-export function MailPreview({ mail }) {
+export function MailPreview({ mail,onMailPrevClick }) {
     const { subject, body, sentAt, isRead,name } = mail
-    console.log(name)
+    
 
 const [isDate,setIsDate]=useState(true)
 
-    function onHoverPreview(){
-        console.log('hi')
-    }
-
+  
     function DateOrBtns(){
         if (isDate) return <div className="mail-sentAt">{sentAt}</div>
-       else  return <div className="mail-sentAt">{sentAt}</div>
-        // else return <div>
-    
+       else  return <div className="mail-sentAt">
+        <button>🗑️</button>
+        <button>{(isRead)? '📪':'📭'}</button>
+       </div>
+        
     }
 
 
     
-
-    // const formatedTime = sentAt.getTime()
-    console.log(sentAt)
-    return <div className={(isRead) ? "wasRead " : '' + "mail-preview"} onMouseOver={onHoverPreview} >
+    return <div className={(isRead) ? "wasRead " : '' + "mail-preview"} 
+    onMouseOver={()=>{setIsDate(false)}} onMouseOut={()=>{setIsDate(true)}} onClick={onMailPrevClick}>
         <div className="mail-prev-actions">
         <input type="checkbox" name="" id="" />
         <div className="mail-star">⭐</div>
@@ -33,7 +30,7 @@ const [isDate,setIsDate]=useState(true)
         <div className="mail-body">{body}</div>
         </div>
         <DateOrBtns/>
-        <div className="mail-sentAt">{sentAt}</div>
+        
 
 
     </div>
