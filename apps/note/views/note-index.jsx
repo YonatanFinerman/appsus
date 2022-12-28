@@ -2,32 +2,24 @@
 const { useState, useEffect } = React
 // const { Link } = ReactRouterDOM
 
-import { noteService } from './../services/note.service.js';
-import { showErrorMsg, showSuccessMsg } from './../../../services/event-bus.service';
-
-// import { noteFilter } from './../cmps/note-filter.jsx';
 import { noteList } from './../cmps/note-list.jsx';
+import { noteFilter } from './../cmps/note-filter.jsx';
+import { noteSideBar } from './../cmps/note-sidebar.jsx';
+
+// import { showErrorMsg, showSuccessMsg } from './../../../services/event-bus.service';
+import { noteService } from './../services/note.service.js';
 
 export function NoteIndex() {
     const [isLoading, setIsLoading] = useState(false)
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
     const [notes, setNotes] = useState([])
-    
-   
 
-    return <section className="note-index full main-layout">
-        <div className="full main-layout">
-            {/* <NoteFilter onSetFilter={onSetFilter} /> */}
 
-            {!isLoading && <NoteList notes={notes} onRemoveNote={onRemoveNote} />}
-            {isLoading && <div>Loading..</div>}
-            {!notes.length && <div>No notes to show..</div>}
-        </div>
-    </section>
+    useEffect(() => {
+        loadNotes()
+    }, [])
 
-    // useEffect(() => {
-    //     loadNotes()
-    // }, [filterBy])
+
 
     function loadNotes() {
         setIsLoading(true)
@@ -54,6 +46,18 @@ export function NoteIndex() {
                 showErrorMsg('Could not remove note')
             })
     }
+
+    return <section className="note-index full main-layout">
+        <div className="full main-layout">
+
+            <NoteFilter onSetFilter={onSetFilter} />
+
+            {!isLoading && <NoteList notes={notes} onRemoveNote={onRemoveNote} />}
+            {isLoading && <div>Loading..</div>}
+            {!notes.length && <div>No notes to show..</div>}
+        </div>
+    </section>
+
 
 
 }

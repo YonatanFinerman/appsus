@@ -1,8 +1,11 @@
+const { useState, useEffect } = React
+
 import { noteService } from "../services/note.service";
 
-export function CarPreview({ car }) {
+export function NotePreview({ note }) {
+    const {type, isPinned, info} = note
 
-    // const imgName = car.vendor ? car.vendor : 'default'
+
     return <article className="note-preview">
         <h2>Your text: {note.info.txt}</h2>
     </article>
