@@ -1,8 +1,8 @@
-import {utilService} from '../../../services/util.service.js'
+import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
-// _createBooks()
+_createMails()
 
 
 export const mailService = {
@@ -10,8 +10,8 @@ export const mailService = {
     get,
     remove,
     save,
-    getDefaultFilter,
-    getEmptyReview,
+    // getDefaultFilter,
+    // getEmptyReview,
 }
 
 // function query(filterBy = getDefaultFilter()) {
@@ -35,10 +35,10 @@ function query() {
 
 
 function get(mailId) {
-  let mail = storageService.get(MAIL_KEY,mailId)
-  console.log('get',mail)
+    let mail = storageService.get(MAIL_KEY, mailId)
+    console.log('get', mail)
     return mail
-    
+
 }
 
 function remove(mailId) {
@@ -70,54 +70,39 @@ function save(mail) {
 
 
 
-function _createMail(title) {
-    return {
-        id: utilService.makeId(),
-        title,
-        description: utilService.makeLorem(8),
-        thumbnail: `../assets/img/${title}.jpg`,
-        listPrice: {
-            amount: utilService.getRandomIntInclusive(10, 100),
-            currencyCode: "EUR",
-            isOnSale: false
-        }
 
-    }
-}
-function _createMail(subject,body) {
+function _createMail(subject,name, body) {
     return {
         id: utilService.makeId(),
         subject,
-        body: 'Would love to catch up sometimes',
+        body,
         isRead: false,
-        sentAt : Date.now(),
-        to: 'momo@momo.com',
-
-        description: utilService.makeLorem(8),
-        thumbnail: `../assets/img/${title}.jpg`,
-        listPrice: {
-            amount: utilService.getRandomIntInclusive(10, 100),
-            currencyCode: "EUR",
-            isOnSale: false
-        }
+        sentAt: Date.now() - utilService.getRandomIntInclusive(0, 63113904000),
+        from:`${name}@momo.com`,
+        to:null
 
     }
 }
 
-const email = {
-    id: 'e101',
-    subject: 'Miss you!',
-    body: 'Would love to catch up sometimes',
-    isRead: false,
-    sentAt : 1551133930594,
-    to: 'momo@momo.com'
-    }
-    
-    const loggedinUser = {
-        email: 'user@appsus.com',
-        fullname: 'Mahatma Appsus'
-       }
+function _createMails(){
+    let mails = utilService.loadFromStorage(MAIL_KEY)
+    console.log('from storage', mails)
+    console.log('from storage', mails)
+    if (!mails || !mails.length) {
+        mails = []
+        mails.push(_createMail('shrek','shrek','only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix','Netflix','Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work','bigboss','There is a new task you need to do for next week'))        
+        mails.push(_createMail('yerakot','moshe','tikne tapuhim'))        
+        mails.push(_createMail('yotvata','moti','Give me some milk'))        
+        mails.push(_createMail('order','ebay','Your order is on the way'))        
+        mails.push(_createMail('match','tinder','You have a new match with simon leviev'))        
+        mails.push(_createMail('sprint12','codingacademy','for this sprint youll need to create a function that returns happyness'))        
+        utilService.saveToStorage(MAIL_KEY, mails)
+        console.log('from reg', mails)
 
+    }
+}
 // function _createBooks() {
 //     let books = utilService.loadFromStorage(BOOK_KEY)
 //     console.log('from storage', books)
@@ -131,4 +116,31 @@ const email = {
 
 //     }
 // }
+
+// const criteria = {
+//     status: 'inbox/sent/trash/draft',
+//     txt: 'puki', // no need to support complex text search
+//     isRead: true, // (optional property, if missing: show all)
+//     isStared: true, // (optional property, if missing: show all)
+//     lables: ['important', 'romantic'] // has any of the labels
+//    }
+   
+
+
+
+const email = {
+    id: 'e101',
+    subject: 'Miss you!',
+    body: 'Would love to catch up sometimes',
+    isRead: false,
+    sentAt: 1551133930594,
+    to: 'momo@momo.com'
+}
+
+const loggedinUser = {
+    email: 'user@appsus.com',
+    fullname: 'Mahatma Appsus'
+}
+
+
 
