@@ -9,6 +9,7 @@ export const noteService = {
     remove,
     save, 
     getDefaultFilter,
+    getDefaultNote,
 }
 
 const NOTE_KEY = 'notesDB'
@@ -44,8 +45,19 @@ function query(filterBy = getDefaultFilter()) {
     })
 }
 
-function getDefaultFilter() {
-    return {  type: 'note-txt' }
+function getDefaultFilter(){
+    return 'note-txt'
+}
+
+function getDefaultNote() {
+    return {  
+        title: '',
+        type: 'note-txt',
+        isPinned: false,
+        info: {
+            txt: ''
+        }
+     }
 }
 
         // CARS functions
@@ -71,6 +83,8 @@ function _createNotes() {
         notes.push(_createTxtNote("Call Esteban Chiemenez"))
         notes.push(_createTxtNote("Love yourself a little"))
         notes.push(_createTxtNote("Emerge victorious"))
+        notes.push(_createTxtNote("The Battle of Van Buren was fought at Van Buren, Arkansas, on December 28, 1862, during the American Civil War. After winning the Battle of Prairie Grove on December 7, Union brigadier generals James G. Blunt (pictured) and Francis J. Herron prepared for a raid against the Confederate positions at Van Buren and Fort Smith. The Union troops struck an outlying Confederate cavalry unit north of Van Buren the morning of December 28."))
+        notes.push(_createTxtNote("words, some words,and more and more words, just like that a long list of words with words and words"))
         utilService.saveToStorage(NOTE_KEY, notes)
     }
     console.log('notes :>> ', notes);

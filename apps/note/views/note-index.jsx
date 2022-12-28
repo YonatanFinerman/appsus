@@ -3,11 +3,13 @@ const { useState, useEffect } = React
 // const { Link } = ReactRouterDOM
 
 import { NoteList } from './../cmps/note-list.jsx';
+// not sure if i need the NoteFilter
 import { NoteFilter } from './../cmps/note-filter.jsx'
 import { NoteSideBar } from './../cmps/note-sidebar.jsx';
-
+import { AddNote } from './../cmps/note-add.jsx'
 // import { showErrorMsg, showSuccessMsg } from './../../../services/event-bus.service';
 import { noteService } from './../services/note.service.js';
+
 
 export function NoteIndex() {
     const [isLoading, setIsLoading] = useState(false)
@@ -35,7 +37,7 @@ export function NoteIndex() {
     }
 
     function onRemoveNote(noteId) {
-        carService.remove(noteId)
+        noteService.remove(noteId)
             .then(() => {
                 const updatedNotes = notes.filter(note => note.id !== noteId)
                 setNotes(updatedNotes)
@@ -50,8 +52,10 @@ export function NoteIndex() {
     return <main className="note-index-container">
         <header className="note-header-container">
             {/* TODO: add filter function */}
-            <NoteFilter />
+            <AddNote setNotes={setNotes} />
         </header>
+        <section>
+        </section>
         <div className="note-sidebar-container">
             <NoteSideBar />
         </div>
