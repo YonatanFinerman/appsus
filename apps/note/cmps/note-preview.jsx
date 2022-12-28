@@ -7,6 +7,10 @@ export function NotePreview({ note }) {
 
 
     return <article className="note-preview">
-        <h2>Your text: {note.info.txt}</h2>
+        <h3>{note.type}</h3>
+        <div className="note-content">
+            {note.info.txt}
+        </div>
+        <div className="note-preview-edit">edit options</div>
     </article>
 }

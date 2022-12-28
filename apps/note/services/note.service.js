@@ -3,9 +3,6 @@
 import { utilService } from './../../../services/util.service.js'
 import { storageService } from './../../../services/async-storage.service.js'
 
-const NOTE_KEY = 'noteDB'
-_createNotes()
-
 export const noteService = {
     query,
     get,
@@ -13,6 +10,10 @@ export const noteService = {
     save, 
     getDefaultFilter,
 }
+
+const NOTE_KEY = 'notesDB'
+_createNotes()
+
 
 function get(noteId) {
     return storageService.get(NOTE_KEY, noteId)
@@ -68,7 +69,7 @@ function _createNotes() {
     if (!notes || !notes.length) {
         notes = []
         notes.push(_createTxtNote("Call Esteban Chiemenez"))
-        notes.push(_createTxtNote("Love your self a little"))
+        notes.push(_createTxtNote("Love yourself a little"))
         notes.push(_createTxtNote("Emerge victorious"))
         utilService.saveToStorage(NOTE_KEY, notes)
     }

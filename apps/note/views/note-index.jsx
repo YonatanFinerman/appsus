@@ -48,18 +48,17 @@ export function NoteIndex() {
     }
 
     return <main className="note-index-container">
-        
-        <div className="full main-layout">
+        <header className="note-header-container">
             {/* TODO: add filter function */}
             <NoteFilter />
-            <div className="note-content-container">
-                <NoteSideBar />
-                <NoteList notes={notes} />
-            </div>
-
-            {!isLoading && <NoteList notes={notes} />}
-            {isLoading && <div>Loading..</div>}
-            {!notes.length && <div>No notes to show..</div>}
+        </header>
+        <div className="note-sidebar-container">
+            <NoteSideBar />
+        </div>
+        <div className="note-content-container">
+        {!isLoading && <NoteList notes={notes} />}
+        {isLoading && <div>Loading..</div>}
+        {!notes.length && <div>No notes to show..</div>}
         </div>
     </main>
 

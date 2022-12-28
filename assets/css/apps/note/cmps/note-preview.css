@@ -2,7 +2,6 @@
 .note-preview{
     display: flex;
     box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
-    justify-content: space-between;
     padding: 10px 0px;
     gap: 20px;
 }

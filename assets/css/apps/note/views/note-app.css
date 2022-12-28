@@ -1,21 +1,40 @@
+/* Main */
 
 .note-index-container{
-
+width: 100vw;
+display: flex;
 }
 
-.sidebar-container{
+/* Header */
+
+.note-header-container{
+    border: solid 1px black;
+
+    width: 95%;
+}
+
+
+/* Sidebar */
+
+.note-sidebar-container{
+    border: solid 1px black;
     width: 15vw;
 }
 
 .note-sidebar{
-    width: 15vw;
+    border: solid 1px black;
+    flex: 1;
 }
 
+/* Notes */
+
 .note-content-container{
+    border: solid 1px black;
     display: flex;
 }
 
 .note-list{
+    border: solid 1px black;
     width: 85vw;
     overflow-y: scroll;
 }
