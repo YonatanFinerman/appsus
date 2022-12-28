@@ -1,8 +1,16 @@
 
 // I will handle the data
+import { utilService } from './../../../services/util.service.js'
+import { storageService } from './../../../services/async-storage.service.js'
 
-console.log('Hi')
- 
+const NOTE_KEY = 'noteDB'
+_createNotes()
+
+
+
+function _createNotes() {
+    let notes = utilService.loadFromStorage()
+}
 const notes = [ 
 { 
     id: "n101", 
