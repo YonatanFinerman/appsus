@@ -1,22 +1,33 @@
 
 const { useState, useEffect } = React
-const { Link } = ReactRouterDOM
+// const { Link } = ReactRouterDOM
 
 import { noteService } from './../services/note.service.js';
 import { showErrorMsg, showSuccessMsg } from './../../../services/event-bus.service';
 
-import { noteFilter } from './../cmps/note-filter.jsx';
+// import { noteFilter } from './../cmps/note-filter.jsx';
 import { noteList } from './../cmps/note-list.jsx';
 
 export function NoteIndex() {
     const [isLoading, setIsLoading] = useState(false)
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
     const [notes, setNotes] = useState([])
-    return <div>note app</div>
+    
+   
 
-    useEffect(() => {
-        loadNotes()
-    }, [filterBy])
+    return <section className="note-index full main-layout">
+        <div className="full main-layout">
+            {/* <NoteFilter onSetFilter={onSetFilter} /> */}
+
+            {!isLoading && <NoteList notes={notes} onRemoveNote={onRemoveNote} />}
+            {isLoading && <div>Loading..</div>}
+            {!notes.length && <div>No notes to show..</div>}
+        </div>
+    </section>
+
+    // useEffect(() => {
+    //     loadNotes()
+    // }, [filterBy])
 
     function loadNotes() {
         setIsLoading(true)
@@ -44,17 +55,6 @@ export function NoteIndex() {
             })
     }
 
-    return <section className="ntoe-index full main-layout">
-        <div className="full main-layout">
-            <NoteFilter onSetFilter={onSetFilter} />
-
-            <Link to="/note/edit">Add Car</Link>
-
-            {!isLoading && <NoteList notes={notes} onRemoveNote={onRemoveNote} />}
-            {isLoading && <div>Loading..</div>}
-            {!notes.length && <div>No notes to show..</div>}
-        </div>
-    </section>
 
 }
 
