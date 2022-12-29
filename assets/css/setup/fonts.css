@@ -37,11 +37,47 @@
 }
 .fa-regular.star::before{
     content: "\f005";
+    color: #5f6368; 
+}
+
+
+
+.fa-regular.pen::before{
+    content: "\f2ed";
     color: #5f6368;
     
 }
+
 .fa-solid.star::before{
     content: "\f005";
     color: gold;
 }
+
+.fa-regular.star-nav::before{
+    content: "\f005";
+    color: black; 
+}
+.fa-regular.sent-nav::before{
+    content: "\f1d8";
+    color: black; 
+}
+.fa-regular.inbox-nav::before{
+    content: "\f0e0";
+    color: black; 
+}
+
+/* .fa-regular.box-nav::before{
+    content: "\e1ba";
+    color: black; 
+} */
+
+.fa-solid.pen::before{
+    content: "\f304";
+    color: black;
+}
+
+/* .fa-solid.inbox::before{
+    content: "\f01c";
+    color: black;
+} */
 

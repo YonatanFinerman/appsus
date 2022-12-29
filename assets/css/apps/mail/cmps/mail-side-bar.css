@@ -1,0 +1,49 @@
+
+.mail-sidebar{
+    background: rgb(246, 248, 248);
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.compose-btn{
+    border-radius: 8px;
+    padding:21px 10px;
+    background-color: #c2e7ff;
+    border: none;
+   width: 50%;
+   margin-left: 20px;
+   margin-bottom: 15px;
+   font-weight: normal;
+   text-align: left;
+
+}
+.compose-btn:hover{
+    cursor: pointer;
+    font-weight: bolder;
+    box-shadow: inset  1px 0 0 #dadce0,-1px 0 0 #dadce0,0 1px 2px 0 rgb(60 64 67 / 30%);
+}
+
+.mail-nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.mail-nav button{
+    text-align: left;
+    border: none;
+    background: none;
+    padding: 10px 30px;
+    width: 90%;
+    font-size: 1rem !important;
+    font-family: Roboto !important;
+
+    border-top-left-radius: 0; /* 50% of height */
+    border-bottom-left-radius: 0; /* 50% of height */
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    
+}
+.mail-nav button:hover{
+    background-color: rgb(237, 235, 235);
+}
