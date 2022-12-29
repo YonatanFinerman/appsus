@@ -1,0 +1,20 @@
+/* Add notes container */
+.note-add {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.note-input-text-area {
+    display: flex;
+    flex-direction: row;
+}
+
+.note-input-text {
+    display: flex;
+}
+
+.note-input-edit {
+    
+}

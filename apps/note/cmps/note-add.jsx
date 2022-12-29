@@ -1,4 +1,4 @@
-const { useState, useEffect, UseRef } = React
+const { useState, useEffect, useRef } = React
 
 import { noteService } from "../services/note.service.js"
 
@@ -6,14 +6,14 @@ export function AddNote({ setNotes }) {
 
     const [addNodeParams, setAddNodeParams] = useState(noteService.getDefaultNote())
     const [isAdding, setIsAdding] = useState(false)
-    // const inputRef = UseRef(null)
+    const addNoteOutlineRef = useRef(null)
+
+    useOutsideClosing(addNoteOutlineRef)
 
     function handleChange({ target }) {
         let { value, name: field, type } = target
-        // TODO: do i need this check for value?
-        value = (type === 'number') ? +value : value
         // Setting params for integration with email
-        if (target.id === 'txt') {
+        if (type === 'txt') {
             return setAddNodeParams(prev => {
                 prev.info.txt = value
                 return { ...prev }
@@ -24,7 +24,22 @@ export function AddNote({ setNotes }) {
         })
     }
 
-    function addNote (){
+    function useOutsideClosing(ref) {
+        useEffect(() => {
+            function handleOutsideClick(ev) {
+                if (ref.current && !ref.current.contains(ev.target)) {
+                    clearState()
+                    // if (isEditing) setIsEditing(false)
+                }
+            }
+            document.addEventListener('mousedown', handleOutsideClick)
+            return () => {
+                document.removeEventListener('mousedown', handleOutsideClick)
+            }
+        }, [ref])
+    }
+
+    function addNote() {
         //this function is sent to the add button onClick event
         setIsAdding(false)
         setAddNodeParams(noteService.getDefaultNote())
@@ -35,10 +50,24 @@ export function AddNote({ setNotes }) {
             })
     }
 
+    function clearState() {
+        setIsAdding(false)
+        setAddNodeParams(noteService.getDefaultNote)
+    }
+
+    function addNote(){
+        clearState()
+
+        noteService.save(addNodeParams)
+            .then(newNote => {
+                return setNotes(prev => [newNote, ...prev])
+            })
+    }
+
     return (
-        <section className="note-add">
+        <section className="note-input-text-area">
             {isAdding && (
-                <div className="note-add-title">
+                <div className="note-input-text">
                     <input
                         type="title"
                         placeholder="Title"
@@ -46,10 +75,12 @@ export function AddNote({ setNotes }) {
                         value={addNodeParams.txt}
                         onChange={handleChange}
                     />
-                    <button>Pin</button>
+                    <button className="btn btn-pin">
+                        <i className="fa-solid fa-thumbtack"></i>
+                    </button>
                 </div>
             )}
-            <div className="note-add-main">
+            <div className="note-input-text">
                 <input
                     type="text"
                     placeholder="Take a note..."
@@ -60,25 +91,33 @@ export function AddNote({ setNotes }) {
                     onClick={() => setIsAdding(true)}
                 />
                 {!isAdding && (
-                    <div className="inlie-buttons">
-                        <button className="btn btn-img">Add image</button>
-                        <button className="btn btn-img">Add something</button>
+                    <div className="inline-buttons">
+                        <button className="btn btn-img">
+                            <i className="fa-solid fa-image" title="Add image"></i>
+                        </button>
+                        <button className="btn btn-todo">
+                            <i className="fa-solid fa-list" title="Add todo list"></i>
+                        </button>
                     </div>
                 )}
             </div>
+
             {isAdding && (
-                <div className="note-edit">
-                    <button>
-                        Pick color
+                <div className="note-input-edit">
+                    <button className="btn btn-text-color">
+                        <i className="fa-solid fa-paintbrush"></i>
                     </button>
-                    <button>
-                        Background color
+                    <button className="btn btn-bgc">
+                        <i className="fa-solid fa-palette"></i>
                     </button>
-                    <button>
-                        Send as an email
+                    <button className="btn btn-email">
+                        <i className="fa-solid fa-paper-plane"></i>
                     </button>
-                    <button className="note-edit-add-button" onClick={addNote}>
-                        add
+                    <button className="btn btn-add" onClick={addNote}>
+                        <i className="fa-solid fa-plus"></i>
+                    </button>
+                    <button className="btn btn-close">
+                        <i className="fa-solid fa-xmark"></i>
                     </button>
                 </div>
             )}

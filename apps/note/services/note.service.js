@@ -80,8 +80,9 @@ function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
         notes = []
-        notes.push(_createTxtNote("Call Esteban Chiemenez"))
+        notes.push(_createTxtNote("Call Esteban Chiemenez", "important"))
         notes.push(_createTxtNote("Love yourself a little"))
+        notes.push(_createTxtNote("The emu (Dromaius novaehollandiae) is the second-tallest living bird after its ratite relative the ostrich. It is endemic to Australia, where it is the largest native bird and the only extant member of the genus Dromaius. The emu's range covers most of mainland Australia, but the Tasmanian, Kangaroo Island and King Island subspecies became extinct after the European settlement of Australia in 1788. Emus are soft-feathered, brown, flightless birds with long necks and legs, and can reach up to 1.9 metres (6.2 ft) in height. "))
         notes.push(_createTxtNote("Emerge victorious"))
         notes.push(_createTxtNote("The Battle of Van Buren was fought at Van Buren, Arkansas, on December 28, 1862, during the American Civil War. After winning the Battle of Prairie Grove on December 7, Union brigadier generals James G. Blunt (pictured) and Francis J. Herron prepared for a raid against the Confederate positions at Van Buren and Fort Smith. The Union troops struck an outlying Confederate cavalry unit north of Van Buren the morning of December 28."))
         notes.push(_createTxtNote("words, some words,and more and more words, just like that a long list of words with words and words"))
@@ -90,9 +91,10 @@ function _createNotes() {
     console.log('notes :>> ', notes);
 }
 
-function _createTxtNote(txt){
+function _createTxtNote(txt, title = "Title"){
     const note = {
-        type: "note-txt",
+        type: "txt",
+        title: title,
         isPinned: false,
         id: utilService.makeId(),
         info: {
@@ -104,7 +106,7 @@ function _createTxtNote(txt){
 
 function _createImgNote() {
     const note = {
-        type: "note-img",
+        type: "img",
         isPinned: false,
         id: utilService.makeId(),
         info: {
@@ -120,7 +122,7 @@ function _createImgNote() {
 
 function _createTodoNote(){
     const note = {
-        type: "note-todos",
+        type: "todo",
         isPinned: false,
         id: utilService.makeId(),
         info: {

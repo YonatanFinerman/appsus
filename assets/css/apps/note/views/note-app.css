@@ -2,38 +2,30 @@
 * {
     box-sizing: border-box;
 }
-.note-index-container{
-display: flex;
-flex-direction: column;
+
+.note-index-container {
+    display: flex;
 }
 
 /* Header */
 
-.note-header-container{
-    border: solid 1px black;
-    width: 100%;
-}
-
 
 /* Sidebar */
 
-.note-sidebar-container{
+.note-sidebar-container {
     display: flex;
-    border: solid 1px black;
     width: 15vw;
-    
+
 }
 
 /* Notes */
 
-.note-content-container{
-    display: flex;
-    border: solid 1px black;
+.note-content-container {
     width: 85vw;
 }
 
-.note-list{
-    border: solid 1px black;
+.note-list {
     width: 85vw;
+    height: 85vh;
     overflow-y: scroll;
 }
