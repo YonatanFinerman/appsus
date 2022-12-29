@@ -1,0 +1,29 @@
+
+.mail-filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f2f6fc; */
+}
+
+.mail-filter button{
+    border: none;
+    background: none;
+}
+
+.mail-filter-form{
+    background-color: #f2f6fc;
+}
+
+.mail-search{
+    width: 60vw;
+    height: 48px;
+    border-style: hidden;
+    background: none;
+
+  
+}
+.mail-search:focus{
+    border: none;
+    outline: none;
+}

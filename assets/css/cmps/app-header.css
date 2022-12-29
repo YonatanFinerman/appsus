@@ -6,7 +6,8 @@ header {
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 1.6rem;
+    padding: 1.6rem ;
+    
 }
 
 nav a {

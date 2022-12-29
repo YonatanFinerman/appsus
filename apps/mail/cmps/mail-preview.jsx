@@ -12,8 +12,8 @@ export function MailPreview({ mail, onMailPreviewClick,onDeleteMailClick,onToggl
     function DateOrBtns() {
         if (isDate) return <div className="mail-sentAt">{sentAt}</div>
         else return <div className="mail-sentAt">
-            <button onClick={()=>{onDeleteMailClick(id)}}>🗑️</button>
-            <button onClick={()=>{
+            <button onClick={()=>{onDeleteMailClick(id)}} title="Delete">🗑️</button>
+            <button title={`${(read) ? " Mark as unread" : "Mark as read"}`} onClick={()=>{
                 onToggleRead(id)
                  setIsRead(prev=>{
                     return !prev

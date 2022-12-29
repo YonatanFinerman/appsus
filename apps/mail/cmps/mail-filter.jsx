@@ -1,33 +1,45 @@
+import { mailService } from "../services/mail.service.js"
+
 const { useState, useEffect } = React
 
-export function MailFilter(){
+export function MailFilter({onSetMailFilter}){
+
+    const [mailFilterBytoEdit, setMailFilterBytoEdit] = useState(mailService.getDefaultCriteria())
+
+
+    useEffect(() => {
+        onSetMailFilter(mailFilterBytoEdit)
+    }, [mailFilterBytoEdit])
 
         function handleChange({ target }) {
         let { value, name: field, type } = target
         value = (type === 'number') ? +value : value
-        setFilterByToEdit((prevFilter) => {
+        setMailFilterBytoEdit((prevFilter) => {
             return { ...prevFilter, [field]: value }
         })
     }
 
     return <section className="mail-filter">
-        
 
 
-        <input type="search" name="" id="" />
+        <form action="" className='mail-filter-form '>
+        <button type='button' onClick={()=>{onSetMailFilter(mailFilterBytoEdit)}}>🔍</button>
+        <input type="text"
+            name="txt"
+            placeholder="Search mail"
+            value={mailFilterBytoEdit.txt || ''}
+            id='mail-search'
+            title=""
+            className="mail-search"
+            onChange={handleChange} />
+
+
+    </form>
+
+  
     </section>
 }
 
-{/* <label for="ice-cream-choice">Choose a flavor:</label>
-<input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice">
-
-<datalist id="ice-cream-flavors">
-    <option value="Chocolate">
-    <option value="Coconut">
-    <option value="Mint">
-    <option value="Strawberry">
-    <option value="Vanilla">
-</datalist> */}
 
 
 
