@@ -1,5 +1,7 @@
 export function NoteSideBar(){
     return <section className="note-sidebar">
-        side bar
+        images
+        notes
+        todos
     </section>
 }
