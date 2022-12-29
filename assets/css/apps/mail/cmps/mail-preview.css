@@ -6,11 +6,13 @@
     justify-content: space-between;
     padding: 10px 8px;
     gap: 20px;
+    font-weight: bold;
+    
 }
 
 .mail-preview.read{
     background-color: #f2f6fc;
-    
+    font-weight: normal;
 }
 
 .mail-preview button{
@@ -45,17 +47,25 @@
     gap: 5px;
 }
 
-.mail-content{
-    display: flex;
+.mail-prev-content{
     flex-grow: 1; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     
+
 }
-.mail-content div{
-    max-width: 100%;
+.mail-prev-subject{
+    color: black;
+  
+}
+.mail-prev-body{
+    color: grey;
+
 }
 
 
 
-/* .mail-preview div{
-    text-align: left;
-} */
+
+
+

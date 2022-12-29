@@ -32,10 +32,7 @@ export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onTog
             const date = new Date(sentAt).toLocaleDateString()
             time = date
         }
-
     }
-
-
 
     function DateOrBtns() {
         if (isDate) return <div className="mail-sentAt">{time}</div>
@@ -48,14 +45,23 @@ export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onTog
                         return !prev
                     })
                 }}></button>
-
-
         </div>
+    }
+
+
+
+
+    function HandleOverFlow({ bodyTxt, length }){
+        
+        if (bodyTxt.length>length){
+            return <span className="mail-body">{bodyTxt.substring(0,length+1) + "..."}</span> 
+        }
+        else return <span className="mail-body">${bodyTxt}</span>
+
 
     }
 
 
-    // className={`mail-preview ${(isRead) ? " read" : ""}`}>
     return <div className={`mail-preview ${(read) ? " read" : ""}`}
         onMouseOver={() => { setIsDate(false) }} onMouseOut={() => { setIsDate(true) }} >
         <div className="mail-prev-actions" >
@@ -67,9 +73,10 @@ export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onTog
             }}></button>
             <div className="from-name" onClick={() => { onMailPreviewClick(id) }}>{name}</div>
         </div>
-        <div className="mail-content" onClick={() => { onMailPreviewClick(id) }}>
-            <div className="mail-subject">{subject}</div>
-            <div className="mail-body">{body}</div>
+        <div className="mail-prev-content" onClick={() => { onMailPreviewClick(id) }}>
+            <span className="mail-prev-subject">{subject + "- "}</span>
+            {/* <HandleOverFlow bodyTxt={body} length={180}/> */}
+            <span className="mail-prev-body">{body}</span>
         </div>
         <DateOrBtns />
 

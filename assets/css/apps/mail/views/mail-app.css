@@ -23,5 +23,6 @@
 
 .mail-list{
     width: 85vw;
+    height: 85vh;
     overflow-y: scroll;
 }
