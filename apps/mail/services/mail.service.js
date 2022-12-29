@@ -95,10 +95,9 @@ function _createMail(subject, name, body) {
         body,
         name,
         isRead: false,
-        sentAt: new Date(Date.now() - utilService.getRandomIntInclusive(0, 63113904000)).toLocaleDateString(),
+        sentAt:(Date.now() - utilService.getRandomIntInclusive(0, 63113904000)),
         from: `${name}@momo.com`,
         to: null
-
     }
 }
 
@@ -115,6 +114,10 @@ function _createMails() {
         mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
         mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
         mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.sort((a,b)=>{
+            return b.sentAt - a.sentAt
+        })
+
         utilService.saveToStorage(MAIL_KEY, mails)
 
     }

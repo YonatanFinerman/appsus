@@ -1,0 +1,47 @@
+
+
+@font-face {
+    font-family: Roboto;
+    src: url("/assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: fa-brands;
+    src: url("/assets/fonts/fa-brands-400.ttf");
+}
+@font-face {
+    font-family: fa-regular;
+    src: url("/assets/fonts/fa-regular-400.ttf");
+}
+@font-face {
+    font-family: fa-solid;
+    src: url("/assets/fonts/fa-solid-900.ttf");
+}
+
+.fa-brands::before{
+    font-family: fa-brands;
+}
+.fa-regular::before{
+    font-family: fa-regular;
+}
+.fa-regular.envelope::before{
+    content: "\f0e0";
+    color: #5f6368;
+}
+.fa-regular.envelope-open::before{
+    content: "\f2b6";
+    color: #5f6368;
+}
+.fa-regular.trash-can::before{
+    content: "\f2ed";
+    color: #5f6368;
+}
+.fa-regular.star::before{
+    content: "\f005";
+    color: #5f6368;
+    
+}
+.fa-solid.star::before{
+    content: "\f005";
+    color: gold;
+}
+

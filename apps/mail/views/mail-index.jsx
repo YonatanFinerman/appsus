@@ -60,6 +60,14 @@ export function MailIndex() {
         })
 
     }
+    function onToggleStared(mailId) {
+        mailService.get(mailId).then(mail => {
+            mail.isStared = !mail.isStared
+            mailService.save(mail)
+            
+        })
+
+    }
 
     return <main className="mail-index-container">
 
@@ -67,7 +75,8 @@ export function MailIndex() {
 
         <div className="mail-content-container">
         <MailFilter onSetMailFilter={onSetMailFilter}/>
-            <MailList mails={mails} onMailPreviewClick={onMailPreviewClick} onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} />
+            <MailList mails={mails} onMailPreviewClick={onMailPreviewClick}
+             onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} />
             {/* <MailHome/> */}
 
         </div>
