@@ -15,8 +15,9 @@
     border: none;
    width: 50%;
    margin-left: 20px;
-   margin-bottom: 80px;
+   margin-bottom: 15px;
    font-weight: normal;
+   text-align: left;
 
 }
 .compose-btn:hover{
@@ -28,17 +29,14 @@
 .mail-nav{
     display: flex;
     flex-direction: column;
-    /* align-items: flex-end;
-    justify-content: flex-end; */
-    
-    
 }
+
 .mail-nav button{
     text-align: left;
     border: none;
     background: none;
     /* background-color: blueviolet; */
-    padding: 10px 20px;
+    padding: 10px 30px;
     width: 90%;
     font-weight: bold !important;
     font-size: 1rem !important;
@@ -51,5 +49,5 @@
     
 }
 .mail-nav button:hover{
-    background-color: blueviolet;
+    background-color: rgb(237, 235, 235);
 }

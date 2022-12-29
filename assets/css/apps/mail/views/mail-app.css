@@ -18,12 +18,11 @@
 }
 
 .mail-sidebar{
-    width: 15vw;
-    
+    width: 13vw;
 }
 
 .mail-list{
-    width: 85vw;
-    height: 85vh;
+    width: 87vw;
+    height: 90vh;
     overflow-y: scroll;
 }

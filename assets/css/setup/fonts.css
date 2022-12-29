@@ -57,10 +57,19 @@
     content: "\f005";
     color: black; 
 }
-.fa-regular.box-nav::before{
-    content: "\e1ba";
+.fa-regular.sent-nav::before{
+    content: "\f1d8";
     color: black; 
 }
+.fa-regular.inbox-nav::before{
+    content: "\f0e0";
+    color: black; 
+}
+
+/* .fa-regular.box-nav::before{
+    content: "\e1ba";
+    color: black; 
+} */
 
 .fa-solid.pen::before{
     content: "\f304";
