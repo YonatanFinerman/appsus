@@ -3,8 +3,17 @@ const { useState, useEffect } = React
 import { noteService } from "../services/note.service";
 
 export function NotePreview({ note }) {
-    const { info, title } = note
+    const { info, title, type } = note
     console.log('title :>> ', title);
+
+    function getNoteInfo() {
+        if (type === 'txt') {
+            return info.txt
+        } else if (type === 'img') {
+            return <img className="img" src={info.url} alt="auto" />
+            
+        }
+    }
 
     return <article className="note-preview">
         <div className="note-content">
@@ -12,7 +21,10 @@ export function NotePreview({ note }) {
             <button className="btn btn-pin">
                 <i className="fa-solid fa-thumbtack"></i>
             </button>
-            <div className="note-preview-content">{info.txt}</div>
+            <div className="note-preview-content">
+                {getNoteInfo()}
+                {/* <img src="/assets/img/audi.jpg" alt="" /> */}
+            </div>
         </div>
         <div className="note-preview-edit">
             <button className="btn btn-text-color-preview">
