@@ -60,12 +60,12 @@ export function NoteIndex() {
                 {/* TODO: add filter function */}
                 <AddNote setNotes={setNotes} />
             </div>
-            <div className="note-pined">
+            <div className="note-pinned">
             {!isLoading && <NoteList notes={notes} />}
             {isLoading && <div>Loading..</div>}
             {!notes.length && <div>No notes to show..</div>}
             </div>
-            <div className="note-unpined">
+            <div className="note-unpinned">
                 
             </div>
         </section>

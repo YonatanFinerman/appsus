@@ -1,8 +1,12 @@
 
 /* goes inside note-pinned class */
-
+.note-pinned{
+    width: 100%;
+}
 .note-list {
+    max-width: 100vw;
     column-count: auto;
+    column-fill: auto;
     column-width: 200px;
     column-gap: 10px; 
 }

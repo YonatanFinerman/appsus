@@ -1,14 +1,15 @@
-/* Add notes container */
+/*  */
 .note-add {
     display: flex;
     padding: 10px;
     align-items: center;
     flex-direction: column;
+    padding: 5px;
 }
 
 .note-input-text-area {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .note-input-text {
@@ -16,5 +17,5 @@
 }
 
 .note-input-edit {
-    
+    justify-content: space-around;
 }
