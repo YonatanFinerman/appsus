@@ -12,7 +12,6 @@ export function MailIndex() {
 
     const [mailFilterBy, onSetMailFilter] = useState([mailService.getDefaultCriteria()])
     const [mails, setMails] = useState([])
-    // const [mail,setMail] = useState({})
     const navigate = useNavigate()
 
     useEffect(() => {
