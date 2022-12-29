@@ -50,20 +50,19 @@ export function NoteIndex() {
     }
 
     return <main className="note-index-container">
-        <header className="note-header-container">
-            {/* TODO: add filter function */}
-            <AddNote setNotes={setNotes} />
-        </header>
-        <section>
-        </section>
-        <div className="note-sidebar-container">
+
+        <section className="note-sidebar-container">
             <NoteSideBar />
-        </div>
-        <div className="note-content-container">
-        {!isLoading && <NoteList notes={notes} />}
-        {isLoading && <div>Loading..</div>}
-        {!notes.length && <div>No notes to show..</div>}
-        </div>
+        </section >
+        
+        <section className="note-content-container">
+        {/* TODO: add filter function */}
+        <AddNote setNotes={setNotes} />
+            {!isLoading && <NoteList notes={notes} />}
+            {isLoading && <div>Loading..</div>}
+            {!notes.length && <div>No notes to show..</div>}
+        </section>
+        
     </main>
 
 
