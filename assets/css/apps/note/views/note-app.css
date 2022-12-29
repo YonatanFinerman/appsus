@@ -1,36 +1,35 @@
 /* Main */
-
+* {
+    box-sizing: border-box;
+}
 .note-index-container{
-width: 100vw;
 display: flex;
+flex-direction: column;
 }
 
 /* Header */
 
 .note-header-container{
     border: solid 1px black;
-
-    width: 95%;
+    width: 100%;
 }
 
 
 /* Sidebar */
 
 .note-sidebar-container{
+    display: flex;
     border: solid 1px black;
     width: 15vw;
-}
-
-.note-sidebar{
-    border: solid 1px black;
-    flex: 1;
+    
 }
 
 /* Notes */
 
 .note-content-container{
-    border: solid 1px black;
     display: flex;
+    border: solid 1px black;
+    width: 85vw;
 }
 
 .note-list{
