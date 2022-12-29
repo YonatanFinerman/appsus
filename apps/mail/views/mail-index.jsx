@@ -4,6 +4,7 @@ const { useParams, useNavigate, Link, Outlet } = ReactRouterDOM
 import { MailList } from "../cmps/mail-list.jsx"
 import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailSideBar } from "../cmps/mail-sidebar.jsx"
+import { NewMailModal } from "../cmps/new-mail-modal.jsx"
 // import { MailHome } from "./mail.home.jsx"
 
 import { mailService } from "../services/mail.service.js"
@@ -16,7 +17,7 @@ export function MailIndex() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        console.log('load',mailFilterBy)
+        console.log('load', mailFilterBy)
         loadMails()
 
     }, [mailFilterBy])
@@ -32,7 +33,7 @@ export function MailIndex() {
         mailService.get(mailId).then(mail => {
             mail.isRead = true
             mailService.save(mail).then(() => {
-                
+
                 navigate(`/mail/:${mailId}`)
             })
 
@@ -66,22 +67,31 @@ export function MailIndex() {
         mailService.get(mailId).then(mail => {
             mail.isStared = !mail.isStared
             mailService.save(mail)
-            
+
         })
 
     }
 
-    return <main className="mail-index-container">
+    function onComposeClick() {
 
-            <MailSideBar onSetMailFilter={onSetMailFilter} mailFilterBy={mailFilterBy}/>
+    }
+    
+     
+       return  <main className="mail-index-container">
+        
+        <MailSideBar onSetMailFilter={onSetMailFilter} mailFilterBy={mailFilterBy} />
 
         <div className="mail-content-container">
-        <MailFilter onSetMailFilter={onSetMailFilter} />
+            <MailFilter onSetMailFilter={onSetMailFilter} />
             <MailList mails={mails} onMailPreviewClick={onMailPreviewClick}
-             onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} />
-            {/* <MailHome/> */}
+                onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} />
 
         </div>
+        <NewMailModal />
     </main>
+  
+      
+
+   
 }
 

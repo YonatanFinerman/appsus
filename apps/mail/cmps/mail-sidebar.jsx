@@ -12,9 +12,9 @@ function onInbox(){
     onSetMailFilter({...mailFilterBy ,isStared:false})
 }
     
-// className={`fa-regular inbox-nav ${(!isStared) ? "side-bar-active" : ""}`}
+
     return <section className="mail-sidebar">
-       <button className='fa-solid pen compose-btn '> &nbsp;&nbsp;&nbsp; Compose</button>
+       <button className=' compose-btn '><span className="fa-solid pen"></span> &nbsp;&nbsp;&nbsp; Compose</button>
        <nav className="mail-nav"> 
         <button className={`fa-regular inbox-nav ${(!isStared) ? "side-bar-active" : ""}`} title="Inbox" onClick={onInbox} > &nbsp;&nbsp;&nbsp; Inbox</button>
         {/* <button className="fa-regular inbox-nav" title="Inbox" onClick={onInbox} > &nbsp;&nbsp;&nbsp; Inbox</button> */}
