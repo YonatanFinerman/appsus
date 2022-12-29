@@ -28,10 +28,26 @@ export const mailService = {
 //             return books
 //         })
 // }
-
-function query() {
+function query(filterBy = getDefaultCriteria()) {
     return storageService.query(MAIL_KEY)
+        .then(mails => {
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regex.test(mail.subject) || regex.test(mail.body) || regex.test(mail.name))
+                // books = books.filter(book => regex.test(book.title))
+
+            }
+            // if (filterBy.amount) {
+            //     console.log(books, filterBy.amount)
+            //     books = books.filter(book => book.listPrice.amount >= filterBy.amount)
+            // }
+            return mails
+        })
 }
+
+// function query() {
+//     return storageService.query(MAIL_KEY)
+// }
 
 
 function get(mailId) {
@@ -75,14 +91,13 @@ function save(mail) {
 function _createMail(subject, name, body) {
     return {
         id: utilService.makeId(),
-        subject,
-        body,
+        subject: subject + " " + utilService.makeLorem(3),
+        body: body + " " + utilService.makeLorem(30),
         name,
         isRead: false,
-        sentAt: new Date(Date.now() - utilService.getRandomIntInclusive(0, 63113904000)).toLocaleDateString(),
+        sentAt: (Date.now() - utilService.getRandomIntInclusive(0, 63113904000)),
         from: `${name}@momo.com`,
         to: null
-
     }
 }
 
@@ -99,6 +114,75 @@ function _createMails() {
         mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
         mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
         mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.push(_createMail('shrek', 'shrek', 'only shrek will fix this country\' problems vote for shrek '))
+        mails.push(_createMail('Netflix', 'Netflix', 'Your subscription is about to end plz give us your money'))
+        mails.push(_createMail('Work', 'bigboss', 'There is a new task you need to do for next week'))
+        mails.push(_createMail('yerakot', 'moshe', 'tikne tapuhim'))
+        mails.push(_createMail('yotvata', 'moti', 'Give me some milk'))
+        mails.push(_createMail('order', 'ebay', 'Your order is on the way'))
+        mails.push(_createMail('match', 'tinder', 'You have a new match with simon leviev'))
+        mails.push(_createMail('sprint12', 'ca', 'for this sprint youll need to create a function that returns happyness'))
+        mails.sort((a, b) => {
+            return b.sentAt - a.sentAt
+        })
+
         utilService.saveToStorage(MAIL_KEY, mails)
 
     }
@@ -117,13 +201,10 @@ function _createMails() {
 //     }
 // }
 
-// function getDefaultCriteria() {
-//     return { title: '', amount: '' }
-// }
-function getDefaultCriteria() {
-    return { isRead: false, txt: '', isStared: false, lables: [] ,status:'inbox'}
-}
 
+function getDefaultCriteria() {
+    return { isRead: false, txt: '', isStared: false, lables: [], status: 'inbox' }
+}
 
 // const criteria = {
 //     status: 'inbox/sent/trash/draft',

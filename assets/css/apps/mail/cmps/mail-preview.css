@@ -4,15 +4,21 @@
     display: flex;
     box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
     justify-content: space-between;
-    padding: 10px 0px;
+    padding: 10px 8px;
     gap: 20px;
+    font-weight: bold;
+    
 }
 
 .mail-preview.read{
     background-color: #f2f6fc;
-    
+    font-weight: normal;
 }
 
+.mail-preview button{
+    border: none;
+    background: none;
+}
 
 
 .mail-preview:hover{
@@ -25,6 +31,9 @@
 }
 .mail-sentAt{
     flex-basis: 8%; 
+    display: flex;
+    justify-content: flex-end;
+   
 }
 .mail-sentAt button{
     border: none;
@@ -34,21 +43,29 @@
 
 .mail-prev-actions{
     display: flex;
-    flex-basis: 15%;
+    flex-basis: 8%;
     gap: 5px;
 }
 
-.mail-content{
-    display: flex;
+.mail-prev-content{
     flex-grow: 1; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     
+
 }
-.mail-content div{
-    max-width: 100%;
+.mail-prev-subject{
+    color: black;
+  
+}
+.mail-prev-body{
+    color: grey;
+
 }
 
 
 
-/* .mail-preview div{
-    text-align: left;
-} */
+
+
+

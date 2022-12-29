@@ -10,6 +10,7 @@ import { mailService } from "../services/mail.service.js"
 
 export function MailIndex() {
 
+    const [mailFilterBy, onSetMailFilter] = useState([mailService.getDefaultCriteria()])
     const [mails, setMails] = useState([])
     // const [mail,setMail] = useState({})
     const navigate = useNavigate()
@@ -17,10 +18,10 @@ export function MailIndex() {
     useEffect(() => {
         loadMails()
 
-    }, [])
+    }, [mailFilterBy])
 
     function loadMails() {
-        mailService.query().then((mailsToUpdate) => {
+        mailService.query(mailFilterBy).then((mailsToUpdate) => {
             setMails(mailsToUpdate)
 
         })
@@ -59,14 +60,23 @@ export function MailIndex() {
         })
 
     }
+    function onToggleStared(mailId) {
+        mailService.get(mailId).then(mail => {
+            mail.isStared = !mail.isStared
+            mailService.save(mail)
+            
+        })
+
+    }
 
     return <main className="mail-index-container">
 
-        <MailFilter />
+            <MailSideBar />
 
         <div className="mail-content-container">
-            <MailSideBar />
-            <MailList mails={mails} onMailPreviewClick={onMailPreviewClick} onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} />
+        <MailFilter onSetMailFilter={onSetMailFilter}/>
+            <MailList mails={mails} onMailPreviewClick={onMailPreviewClick}
+             onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} />
             {/* <MailHome/> */}
 
         </div>
