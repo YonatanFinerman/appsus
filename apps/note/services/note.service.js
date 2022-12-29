@@ -93,7 +93,7 @@ function _createNotes() {
 
 function _createTxtNote(txt, title = "Title"){
     const note = {
-        type: "note-txt",
+        type: "txt",
         title: title,
         isPinned: false,
         id: utilService.makeId(),
@@ -106,7 +106,7 @@ function _createTxtNote(txt, title = "Title"){
 
 function _createImgNote() {
     const note = {
-        type: "note-img",
+        type: "img",
         isPinned: false,
         id: utilService.makeId(),
         info: {
@@ -122,7 +122,7 @@ function _createImgNote() {
 
 function _createTodoNote(){
     const note = {
-        type: "note-todos",
+        type: "todo",
         isPinned: false,
         id: utilService.makeId(),
         info: {
