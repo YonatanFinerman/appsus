@@ -24,7 +24,7 @@ export function AddNote({ setNotes }) {
         })
     }
 
-    function addNote (){
+    function addNote() {
         //this function is sent to the add button onClick event
         setIsAdding(false)
         setAddNodeParams(noteService.getDefaultNote())
@@ -36,9 +36,9 @@ export function AddNote({ setNotes }) {
     }
 
     return (
-        <section className="note-add">
+        <section className="note-input-text-area">
             {isAdding && (
-                <div className="note-add-title">
+                <div className="note-input-text">
                     <input
                         type="title"
                         placeholder="Title"
@@ -49,7 +49,7 @@ export function AddNote({ setNotes }) {
                     <button>Pin</button>
                 </div>
             )}
-            <div className="note-add-main">
+            <div className="note-input-text">
                 <input
                     type="text"
                     placeholder="Take a note..."
@@ -60,16 +60,17 @@ export function AddNote({ setNotes }) {
                     onClick={() => setIsAdding(true)}
                 />
                 {!isAdding && (
-                    <div className="inlie-buttons">
+                    <div className="inline-buttons">
                         <button className="btn btn-img">Add image</button>
-                        <button className="btn btn-img">Add something</button>
+                        <button className="btn ">Add something</button>
                     </div>
                 )}
             </div>
+
             {isAdding && (
-                <div className="note-edit">
+                <div className="note-input-edit">
                     <button>
-                        Pick color
+                        Text color
                     </button>
                     <button>
                         Background color
@@ -77,8 +78,11 @@ export function AddNote({ setNotes }) {
                     <button>
                         Send as an email
                     </button>
-                    <button className="note-edit-add-button" onClick={addNote}>
+                    <button className="note-input-edit-add-button" onClick={addNote}>
                         add
+                    </button>
+                    <button>
+                        X
                     </button>
                 </div>
             )}

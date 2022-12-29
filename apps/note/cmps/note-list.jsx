@@ -4,11 +4,11 @@ import { NotePreview } from "./note-preview.jsx";
 
 export function NoteList({ notes, onRemoveNote }) {
 
-    console.log('notes from note list', notes)
+    // console.log('notes from note list', notes)
 
     return <section className="note-list">
         {notes.map(note => {
-            return <NotePreview mey={note.id} note={note} />
+            return <NotePreview key={note.id} note={note} />
         })}
     </section>
 

@@ -1,12 +1,43 @@
+
 /* individual note container */
 .note-preview{
+    position: relative;
     backdrop-filter: blur(14px);
     border: 1px solid black;
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 0.6em 1.9em 1.3em;
     display: inline-block;
     margin: 0 1rem 1rem 0;
     width: 100%;
     min-height: 100px;
+    max-height: 400px;
+    overflow: hidden;
 }
+
+.note-content{
+    overflow: hidden;
+
+}
+
+.note-content h4{
+    color: red;
+    margin-bottom: 10px;
+}
+
+.note-content-pin-btn{
+position:fixed ;
+right: 10px;
+top: 10px;
+}
+
+.note-preview-content{
+
+}
+
+.note-preview-edit{
+
+}
+
+
+
 

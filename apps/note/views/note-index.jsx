@@ -54,15 +54,22 @@ export function NoteIndex() {
         <section className="note-sidebar-container">
             <NoteSideBar />
         </section >
-        
+
         <section className="note-content-container">
-        {/* TODO: add filter function */}
-        <AddNote setNotes={setNotes} />
+            <div className="note-add">
+                {/* TODO: add filter function */}
+                <AddNote setNotes={setNotes} />
+            </div>
+            <div className="note-pined">
             {!isLoading && <NoteList notes={notes} />}
             {isLoading && <div>Loading..</div>}
             {!notes.length && <div>No notes to show..</div>}
+            </div>
+            <div className="note-unpined">
+                
+            </div>
         </section>
-        
+
     </main>
 
 
