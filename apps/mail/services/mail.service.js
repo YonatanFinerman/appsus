@@ -28,15 +28,22 @@ export const mailService = {
 //             return books
 //         })
 // }
+
+function getDefaultCriteria() {
+    return { isRead: false, txt: '', isStared: false, lables: [], status: 'inbox' }
+}
+
 function query(filterBy = getDefaultCriteria()) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.subject) || regex.test(mail.body) || regex.test(mail.name))
-                // books = books.filter(book => regex.test(book.title))
-
             }
+            if (filterBy.isStared){
+                mails = mails.filter(mail=>mail.isStared)
+            }
+
             // if (filterBy.amount) {
             //     console.log(books, filterBy.amount)
             //     books = books.filter(book => book.listPrice.amount >= filterBy.amount)
@@ -202,9 +209,7 @@ function _createMails() {
 // }
 
 
-function getDefaultCriteria() {
-    return { isRead: false, txt: '', isStared: false, lables: [], status: 'inbox' }
-}
+
 
 // const criteria = {
 //     status: 'inbox/sent/trash/draft',

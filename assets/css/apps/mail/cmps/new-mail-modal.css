@@ -1,0 +1,11 @@
+
+.name-mail-modal{
+    position: fixed;
+   bottom: 0;
+    right: 0;
+    height: 500px;
+    width: 500px;
+    background-color: blue;
+    font-size: 100px;
+    /* z-index: 2; */
+}

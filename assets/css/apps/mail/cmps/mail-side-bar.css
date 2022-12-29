@@ -3,19 +3,22 @@
     background: rgb(246, 248, 248);
     display: flex;
     flex-direction: column;
+    /* position: fixed; */
    
 }
 
 .compose-btn{
-    border-radius: 8px;
+    border-radius: 10px;
     padding:21px 10px;
     background-color: #c2e7ff;
     border: none;
-   width: 50%;
+   width: 150px;
    margin-left: 20px;
    margin-bottom: 15px;
    font-weight: normal;
    text-align: left;
+   
+   
 
 }
 .compose-btn:hover{
@@ -37,13 +40,19 @@
     width: 90%;
     font-size: 1rem !important;
     font-family: Roboto !important;
-
     border-top-left-radius: 0; /* 50% of height */
     border-bottom-left-radius: 0; /* 50% of height */
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     
 }
-.mail-nav button:hover{
+
+.mail-nav button.side-bar-active{
+    background-color: #bcd3f6;
+}
+
+.mail-nav > *:hover:not(.side-bar-active){
     background-color: rgb(237, 235, 235);
 }
+
+
