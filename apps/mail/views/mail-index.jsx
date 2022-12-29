@@ -14,6 +14,8 @@ export function MailIndex() {
     const [mailFilterBy, onSetMailFilter] = useState([mailService.getDefaultCriteria()])
     const [mails, setMails] = useState([])
     // const [starredMails,setStarredMails] = useState()
+    const [isModalOpen,setIsModalOpen] = useState(false)
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -73,21 +75,22 @@ export function MailIndex() {
     }
 
     function onComposeClick() {
-
+        setIsModalOpen(true)
     }
     
      
        return  <main className="mail-index-container">
         
-        <MailSideBar onSetMailFilter={onSetMailFilter} mailFilterBy={mailFilterBy} />
+        <MailSideBar onSetMailFilter={onSetMailFilter} mailFilterBy={mailFilterBy} onComposeClick={onComposeClick}/>
 
         <div className="mail-content-container">
             <MailFilter onSetMailFilter={onSetMailFilter} />
             <MailList mails={mails} onMailPreviewClick={onMailPreviewClick}
-                onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} />
+                onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared}  />
 
         </div>
-        <NewMailModal />
+       {(isModalOpen) && <NewMailModal />}
+     
     </main>
   
       

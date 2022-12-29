@@ -8,4 +8,14 @@
     background-color: blue;
     font-size: 100px;
     /* z-index: 2; */
+    /* transform: translateY(100%); */
 }
+
+/* .name-mail-modal.closed{
+    max-height: 0;
+} */
+
+.name-mail-modal.open{
+   height: 500px;
+}
+
