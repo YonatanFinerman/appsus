@@ -25,6 +25,14 @@
     box-shadow: inset  1px 0 0 #dadce0,-1px 0 0 #dadce0,0 1px 2px 0 rgb(60 64 67 / 30%);
 }
 
+.mail-preview button:hover{
+    text-align: center;
+    background-color: #dadce0;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+}
+
 
 .mail-subject{
   flex-basis: 20%;  
@@ -52,6 +60,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    
     
 
 }
