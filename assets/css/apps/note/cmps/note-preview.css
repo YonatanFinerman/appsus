@@ -9,13 +9,13 @@
     display: inline-block;
     margin: 0 1rem 1rem 0;
     width: 100%;
-    min-height: 100px;
-    max-height: 400px;
+    min-height: 120px;
+    max-height: 350px;
     overflow: hidden;
 }
 
 .note-content{
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .note-content h4{
