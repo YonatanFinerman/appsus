@@ -26,7 +26,7 @@ export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onTog
         else if (currTime - sentAt < day * 365) {
             const month = utilService.getMonthName(new Date(sentAt))
             const dayNum = new Date(sentAt).getDate()
-            time = dayNum + " " + month
+            time = month + " " + dayNum
         }
         else {
             const date = new Date(sentAt).toLocaleDateString()

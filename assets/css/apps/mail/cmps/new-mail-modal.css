@@ -2,20 +2,109 @@
 .name-mail-modal{
     position: fixed;
    bottom: 0;
-    right: 0;
+    right: 20px;
     height: 500px;
     width: 500px;
-    background-color: blue;
-    font-size: 100px;
-    /* z-index: 2; */
-    /* transform: translateY(100%); */
+    background-color: white;
+    border-radius: 10px;
+    padding:0 10px;
+
+
 }
 
-/* .name-mail-modal.closed{
-    max-height: 0;
-} */
+.mail-modal-title{
+    color: #041e49;
+}
+
+
 
 .name-mail-modal.open{
    height: 500px;
 }
+
+.mail-modal-header{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.mail-modal-header button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.mail-modal-header button:hover{
+    
+    background: #dadce0;
+}
+
+.mail-to-input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dadce0;
+    background: none;
+    padding: 10px 0;
+}
+.mail-to-input:focus{
+    content: "To";
+    outline: none;
+}
+
+.mail-body-input{
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    resize: none;
+  
+    height: 290px;
+
+}
+
+.mail-body-input:focus{
+    outline: none;
+}
+
+.mail-modal-footer{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    
+}
+
+.mail-modal-footer button:not(.mail-modal-send-btn){
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+
+
+
+
+.modal-delete-btn{
+    margin-left: 50px;
+    
+}
+
+
+.mail-modal-send-btn{
+    color: white;
+    background-color: #0B57D0;
+    padding: 12px 0;
+    border: none;
+    border-radius: 2em;
+    width: 100px;
+    margin-right: 20px;
+    cursor: pointer;
+
+}
+
+.mail-modal-send-btn:hover{
+    background-color: #0b57d0c7;
+}
+
+
+
 

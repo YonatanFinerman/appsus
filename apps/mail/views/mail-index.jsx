@@ -14,7 +14,9 @@ export function MailIndex() {
     const [mailFilterBy, onSetMailFilter] = useState([mailService.getDefaultCriteria()])
     const [mails, setMails] = useState([])
     // const [starredMails,setStarredMails] = useState()
-    const [isModalOpen,setIsModalOpen] = useState(false)
+
+    // const [isModalOpen,setIsModalOpen] = useState(false)
+    const [isModalOpen,setIsModalOpen] = useState(true)
 
     const navigate = useNavigate()
 

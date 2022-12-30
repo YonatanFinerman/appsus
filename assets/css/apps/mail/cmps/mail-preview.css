@@ -5,8 +5,10 @@
     box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
     justify-content: space-between;
     padding: 10px 8px;
-    gap: 20px;
     font-weight: bold;
+    /* gap: 20px; */
+    gap: 0.5vw;
+   
     
 }
 
@@ -18,6 +20,7 @@
 .mail-preview button{
     border: none;
     background: none;
+    padding: 3px;
 }
 
 
@@ -29,8 +32,10 @@
     text-align: center;
     background-color: #dadce0;
     border-radius: 50%;
-    height: 25px;
-    width: 25px;
+    /* height: 25px;
+    width: 25px; */
+    
+    outline: 3px solid #dadce0;
 }
 
 
@@ -38,9 +43,15 @@
   flex-basis: 20%;  
 }
 .mail-sentAt{
-    flex-basis: 8%; 
+
     display: flex;
+    gap: 5px;
     justify-content: flex-end;
+    min-width: 60px;
+    flex-shrink: 0;
+    text-align: left;
+    justify-content: flex-start;
+    padding-left: 5px;
    
 }
 .mail-sentAt button{
@@ -51,19 +62,27 @@
 
 .mail-prev-actions{
     display: flex;
-    flex-basis: 8%;
+
+   min-width: 200px;
     gap: 5px;
+    flex-shrink: 0;
 }
 
+
 .mail-prev-content{
-    flex-grow: 1; 
+    /* flex-basis: 84%;  */
+    flex-grow: 1;
+    
+   
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-shrink: 1;
     
-    
-
 }
+
+
+
 .mail-prev-subject{
     color: black;
   

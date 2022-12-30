@@ -26,20 +26,49 @@
 .fa-regular.envelope::before{
     content: "\f0e0";
     color: #5f6368;
+   
 }
+
 .fa-regular.envelope-open::before{
     content: "\f2b6";
     color: #5f6368;
+   
 }
 .fa-regular.trash-can::before{
     content: "\f2ed";
     color: #5f6368;
+   
+}
+
+.fa-regular.trash-can-black::before{
+    content: "\f2ed";
+    color: #000000;
+   
 }
 .fa-regular.star::before{
     content: "\f005";
     color: #5f6368; 
+   
+}
+.fa-regular.img-icon::before{
+    content: "\f03e";
+    color: black; 
+   
 }
 
+.fa-regular.sign-icon::before{
+    content: "\f5ac";
+    color: black; 
+   
+}
+
+
+.fa-solid.star::before{
+    content: "\f005";
+    color: gold;
+  
+   
+}
 
 
 .fa-regular.pen::before{
@@ -48,10 +77,8 @@
     
 }
 
-.fa-solid.star::before{
-    content: "\f005";
-    color: gold;
-}
+
+
 
 .fa-regular.star-nav::before{
     content: "\f005";
@@ -66,18 +93,61 @@
     color: black; 
 }
 
-/* .fa-regular.box-nav::before{
-    content: "\e1ba";
-    color: black; 
-} */
-
 .fa-solid.pen::before{
     content: "\f304";
     color: black;
 }
-
-/* .fa-solid.inbox::before{
-    content: "\f01c";
+.fa-solid.options::before{
+    content: "\f013";
     color: black;
-} */
+}
+.fa-solid.more-options::before{
+    content: "\f142";
+    color: black;
+}
+
+
+.fa-solid.caps::before{
+    content: "\41";
+    color: black;
+}
+.fa-solid.lock::before{
+    content: "\f023";
+    color: black;
+}
+
+.fa-solid.pin::before{
+    content: "\f0c6";
+    color: black;
+}
+
+.fa-solid.link::before{
+    content: "\f0c1";
+    color: black;
+}
+
+.fa-regular.emoji::before{
+    content: "\f118";
+    color: black;
+}
+
+
+
+
+.fa-solid.minus::before{
+    content: "\f068";
+    color: #5f6368;
+}
+
+
+.fa-solid.double-arrow::before{
+    content: "\f047";
+    color: #5f6368;
+}
+.fa-solid.x::before{
+    content: "\f00d";
+    color: #5f6368;
+}
+
+
 
