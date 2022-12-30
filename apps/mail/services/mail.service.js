@@ -34,6 +34,14 @@ function getEmptymail(){
 //         })
 // }
 
+// getMailsIdx()
+
+// function getMailsIdx(mail){
+//     const mails = localStorage.getItem(MAIL_KEY)
+//     console.log('these are mailssss')
+// }
+
+
 function getDefaultCriteria() {
     return { isRead: false, txt: '', isStared: false, lables: [], status: 'inbox' }
 }

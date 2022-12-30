@@ -34,14 +34,14 @@ export function MailIndex() {
 
         })
     }
-    
+
     function onMailPreviewClick(mailId) {
         console.log('mailId', mailId)
         mailService.get(mailId).then(mail => {
             mail.isRead = true
             mailService.save(mail).then(() => {
 
-                navigate(`/mail/:${mailId}`)
+                navigate(`/mail/${mailId}`)
             })
 
         })
