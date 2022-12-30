@@ -8,6 +8,7 @@ import { NewMailModal } from "../cmps/new-mail-modal.jsx"
 // import { MailHome } from "./mail.home.jsx"
 
 import { mailService } from "../services/mail.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 export function MailIndex() {
 
@@ -15,8 +16,9 @@ export function MailIndex() {
     const [mails, setMails] = useState([])
     // const [starredMails,setStarredMails] = useState()
 
-    // const [isModalOpen,setIsModalOpen] = useState(false)
-    const [isModalOpen,setIsModalOpen] = useState(true)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isNewModal, setIsNewModal] = useState(true)
+
 
     const navigate = useNavigate()
 
@@ -32,6 +34,7 @@ export function MailIndex() {
 
         })
     }
+    
     function onMailPreviewClick(mailId) {
         console.log('mailId', mailId)
         mailService.get(mailId).then(mail => {
@@ -77,26 +80,59 @@ export function MailIndex() {
     }
 
     function onComposeClick() {
-        setIsModalOpen(true)
+        if (isNewModal && !isModalOpen) {
+            setIsModalOpen(true)
+            setIsNewModal(false)
+        }
+        else if (!isNewModal && !isModalOpen) {
+            setIsModalOpen(true)
+        }
+        else if (!isNewModal && isModalOpen) {
+            setIsModalOpen(false)
+        }
     }
-    
-     
-       return  <main className="mail-index-container">
+
+    function onSendMail(val) {
         
-        <MailSideBar onSetMailFilter={onSetMailFilter} mailFilterBy={mailFilterBy} onComposeClick={onComposeClick}/>
+        const user = mailService.getLoggedInUser()
+        const { subject, body, to } = val
+        const { name, email: from } = user
+        
+        const newMail = {
+            subject,
+            body,
+            to,
+            name,
+            from,
+            isRead:false,
+            isStared:false,
+            sentAt:Date.now()
+        }
+        console.log('new mailll',newMail)
+        mailService.save(newMail).then(()=>{
+
+            loadMails()
+            // loadmails isNeedInCase we are on the sent mail page 
+            // later use loadmails or setmails by checking on the current mails array if its a sent mail a inbox mail
+        })
+
+    }
+
+
+
+
+    return <main className="mail-index-container">
+
+        <MailSideBar onSetMailFilter={onSetMailFilter} mailFilterBy={mailFilterBy} onComposeClick={onComposeClick} />
 
         <div className="mail-content-container">
             <MailFilter onSetMailFilter={onSetMailFilter} />
             <MailList mails={mails} onMailPreviewClick={onMailPreviewClick}
-                onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared}  />
+                onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} />
 
         </div>
-       {(isModalOpen) && <NewMailModal />}
-     
-    </main>
-  
-      
 
-   
+        {(isModalOpen || !isNewModal) && <NewMailModal isModalOpen={isModalOpen} isNewModal={isNewModal} onSendMail={onSendMail} setIsNewModal={setIsNewModal} setIsModalOpen={setIsModalOpen} />}
+    </main>
 }
 

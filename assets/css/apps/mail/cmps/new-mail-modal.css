@@ -18,20 +18,35 @@
 
 
 
-.name-mail-modal.open{
-   height: 500px;
-}
+
 
 .mail-modal-header{
     align-items: center;
     justify-content: space-between;
     display: flex;
+    /* background: none; */
+    border: 10px;
+}
+
+.mail-modal-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-basis: 80%;
+    color: #041e49;
+    font-weight: bolder;
+}
+
+.modal-opening-btns-cont{
+    flex-basis: 20%;
+    
 }
 
 .mail-modal-header button{
     border: none;
     background: none;
     cursor: pointer;
+    padding: 5px;
 }
 .mail-modal-header button:hover{
     
@@ -84,7 +99,7 @@
 
 
 .modal-delete-btn{
-    margin-left: 50px;
+    margin-left: 90px;
     
 }
 
@@ -104,6 +119,18 @@
 .mail-modal-send-btn:hover{
     background-color: #0b57d0c7;
 }
+
+
+.mail-modal-header-container{
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+  
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: inset  1px 0 0 #dadce0,-1px 0 0 #dadce0,0 1px 2px 0 rgb(60 64 67 / 30%);
+}
+
 
 
 

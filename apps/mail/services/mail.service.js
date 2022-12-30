@@ -11,7 +11,12 @@ export const mailService = {
     remove,
     save,
     getDefaultCriteria,
-    // getEmptyReview,
+    getEmptymail,
+    getLoggedInUser,
+}
+
+function getEmptymail(){
+    return {to:'',subject:'',body:''}
 }
 
 // function query(filterBy = getDefaultFilter()) {
@@ -34,15 +39,27 @@ function getDefaultCriteria() {
 }
 
 function query(filterBy = getDefaultCriteria()) {
+    console.log('this is filter',filterBy)
+    const user = getLoggedInUser()
     return storageService.query(MAIL_KEY)
         .then(mails => {
+            mails.sort((a, b) => {
+                return b.sentAt - a.sentAt
+            })
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.subject) || regex.test(mail.body) || regex.test(mail.name))
             }
+            if(filterBy.status==="inbox"){
+                mails = mails.filter(mail=>mail.to===user.email)
+            }
+            if(filterBy.status==="sent"){
+                mails = mails.filter(mail=>mail.to!==user.email)
+            }
             if (filterBy.isStared){
                 mails = mails.filter(mail=>mail.isStared)
             }
+
 
             // if (filterBy.amount) {
             //     console.log(books, filterBy.amount)
@@ -90,12 +107,17 @@ function save(mail) {
 
 
 
-
-
+function getLoggedInUser(){
+    return {
+        email: 'user@appsus.com',
+        name: 'Mahatma Appsus'
+    }
+}
 
 
 
 function _createMail(subject, name, body) {
+    const user = getLoggedInUser()
     return {
         id: utilService.makeId(),
         subject: subject + " " + utilService.makeLorem(3),
@@ -104,7 +126,8 @@ function _createMail(subject, name, body) {
         isRead: false,
         sentAt: (Date.now() - utilService.getRandomIntInclusive(0, 63113904000)),
         from: `${name}@momo.com`,
-        to: null
+        to:user.email,
+        isStared:false,
     }
 }
 
@@ -189,7 +212,7 @@ function _createMails() {
         mails.sort((a, b) => {
             return b.sentAt - a.sentAt
         })
-
+        
         utilService.saveToStorage(MAIL_KEY, mails)
 
     }
@@ -222,19 +245,16 @@ function _createMails() {
 
 
 
-const email = {
-    id: 'e101',
-    subject: 'Miss you!',
-    body: 'Would love to catch up sometimes',
-    isRead: false,
-    sentAt: 1551133930594,
-    to: 'momo@momo.com'
-}
+// const email = {
+//     id: 'e101',
+//     subject: 'Miss you!',
+//     body: 'Would love to catch up sometimes',
+//     isRead: false,
+//     sentAt: 1551133930594,
+//     to: 'momo@momo.com'
+// }
 
-const loggedinUser = {
-    email: 'user@appsus.com',
-    fullname: 'Mahatma Appsus'
-}
+
 
 
 
