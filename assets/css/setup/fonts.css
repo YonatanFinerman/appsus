@@ -45,6 +45,22 @@
     color: #000000;
    
 }
+.fa-solid.go-back::before{
+    content: "\f060";
+    color: #000000;
+   
+}
+.fa-solid.angle-right::before{
+    content: "\f105";
+    color: #000000;
+   
+}
+.fa-solid.angle-left::before{
+    content: "\f104";
+    color: #000000;
+   
+}
+
 .fa-regular.star::before{
     content: "\f005";
     color: #5f6368; 

@@ -126,10 +126,11 @@ function getLoggedInUser(){
 
 function _createMail(subject, name, body) {
     const user = getLoggedInUser()
+    const randomNum = utilService.getRandomIntInclusive(0,100)
     return {
         id: utilService.makeId(),
         subject: subject + " " + utilService.makeLorem(3),
-        body: body + " " + utilService.makeLorem(30),
+        body: body + " " + utilService.makeLorem(randomNum),
         name,
         isRead: false,
         sentAt: (Date.now() - utilService.getRandomIntInclusive(0, 63113904000)),
