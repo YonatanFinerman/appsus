@@ -7,7 +7,7 @@ import { HeaderModal } from "./header-modal.jsx"
 
 export function AppHeader() {
 
-    const [isHModalOpen,setHmodal] = useState(true)
+    const [isHModalOpen,setHmodal] = useState(false)
 
     return <header className="app-header">
         <Link to="/">
