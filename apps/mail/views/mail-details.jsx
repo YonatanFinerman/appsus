@@ -55,7 +55,7 @@ export function MailDetails(){
         </div>
             <h2 className="mail-subject">{currMail.subject}</h2>
             <div className="from-info">
-                <img src="/assets/img/person.webp" alt=""  className="profile-pic"/>
+                <img src="./assets/img/person.webp" alt=""  className="profile-pic"/>
                 <h3>{currMail.name}</h3>
                 <small>{currMail.from}</small>
             </div>
