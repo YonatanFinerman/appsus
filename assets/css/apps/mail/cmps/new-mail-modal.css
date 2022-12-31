@@ -131,6 +131,13 @@
     box-shadow: inset  1px 0 0 #dadce0,-1px 0 0 #dadce0,0 1px 2px 0 rgb(60 64 67 / 30%);
 }
 
+@media (max-width: 700px) {
+     .name-mail-modal{
+         width: 90vw;
+         right: 0;
+        }
+      }
+
 
 
 

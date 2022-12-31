@@ -20,7 +20,7 @@ export function MailFilter({onSetMailFilter}){
     }
 
     return <section className="mail-filter">
-
+        
 
         <form action="" className='mail-filter-form '>
         <button type='button' onClick={()=>{onSetMailFilter(mailFilterBytoEdit)}}>🔍</button>

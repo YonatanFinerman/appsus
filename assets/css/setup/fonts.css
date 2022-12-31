@@ -1,19 +1,9 @@
 
 
-/* @font-face {
-    font-family: Roboto;
-    src: url("/assets/fonts/Roboto-Regular.ttf");
-} */
-
 @font-face {
     font-family: fa-brands;
     src: url("/assets/fonts/fa-brands-400.ttf");
 }
-
-/* @font-face {
-    font-family: fa-regular;
-    src: url("/assets/fonts/fa-regular-400.ttf");
-} */
 
 
 @font-face {
@@ -21,22 +11,18 @@
     src: url("/assets/fonts/fa-solid-900.ttf");
 }
 
-@font-face {
-    font-family: Roboto;
-    src: url("/assets/fonts/Roboto-Regular.ttf");
-}
 
-
-/* @font-face {
-    font-family: fa-solid;
-    src: url("/assets/fonts/fa-regular-400.ttf");
-} */
 
 @font-face {
     font-family: fa-regular;
     src: url("/assets/fonts/fa-regular-400.ttf");
 }
 
+
+@font-face{
+    font-family: Roboto;
+    src: url("/assets/fonts/Roboto-Regular.ttf");
+}
 
 
 
@@ -47,18 +33,20 @@
     font-family: fa-regular;
 }
 
-
 .fa-solid{
     font-family: fa-solid;
 }
 
+html{
+    font-family: Roboto;
+}
 
 .fa-brands.linkedin::before{
     content: "\f0e1";
     color: #ffffff;
     font-size: 25px;
     padding: 7px;
-    /* border: 1px solid black; */
+    
    
 }
 .fa-brands.twitter::before{
@@ -66,7 +54,7 @@
     color: #ffffff;
     font-size: 25px;
     padding: 7px;
-    /* border: 1px solid black; */
+  
    
 }
 .fa-brands.instagram::before{
@@ -74,7 +62,7 @@
     color: #ffffff;
     font-size: 25px;
     padding: 7px;
-    /* border: 1px solid black; */
+    
    
 }
 

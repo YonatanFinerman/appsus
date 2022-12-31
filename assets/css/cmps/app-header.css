@@ -6,7 +6,7 @@ header {
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 1.6rem ;
+    padding: 0.525vw ;
     margin: 0;
     align-items: center;
 }
@@ -41,7 +41,7 @@ nav a.active {
 
 .header-modal{
     position:fixed ;
-    top: 82px;
+    top: 55px;
     right: 0px;
     background: rgb(246, 248, 248);
     width: 150px;

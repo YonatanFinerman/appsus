@@ -69,7 +69,7 @@ export function NewMailModal({ isModalOpen, isNewModal,setIsModalOpen,setIsNewMo
                 <button className="fa-regular img-icon"></button>
                 <button className="fa-solid pen "></button>
                 <button className="fa-solid lock "></button>
-                <button className="fa-solid more-options "></button>
+                {/* <button className="fa-solid more-options "></button> */}
             </div>
             <button className="modal-delete-btn fa-regular trash-can-black" onClick={onCloseMailModal}></button>
         </footer>
