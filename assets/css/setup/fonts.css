@@ -40,16 +40,17 @@
 
 
 
-/* .fa-brands::before{
+.fa-brands{
     font-family: fa-brands;
 }
-.fa-regular::before{
+.fa-regular {
     font-family: fa-regular;
-} */
+}
 
-/* .fa-solid::before{
+
+.fa-solid{
     font-family: fa-solid;
-} */
+}
 
 
 .fa-brands.linkedin::before{
