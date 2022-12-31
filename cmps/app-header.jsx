@@ -24,6 +24,6 @@ export function AppHeader() {
         </div>
         </nav>
 
-        {(isHModalOpen) && <HeaderModal/>}
+        {(isHModalOpen) && <HeaderModal setHmodal={setHmodal}/>}
     </header>
 }

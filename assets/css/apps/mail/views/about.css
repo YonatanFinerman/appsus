@@ -1,0 +1,78 @@
+
+
+.about{
+   background-color: black;
+   height: 40vw;
+   /* display: flex; */
+   /* overflow-y: hidden;
+   */
+   background-color: rgb(246, 248, 248);
+}
+
+.about-ifno{
+    margin: auto;
+    width: 50vw;
+    background-color: rgb(246, 248, 248);
+
+}
+
+.team-title{
+    margin: 50px;
+    text-align: center;
+    font-size: 50px;
+    color: #6782B4;
+}
+
+.team{
+    display: flex;
+   gap: 50px;
+   justify-content: center;
+   
+   
+}
+
+.team-member{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border-radius: 20px;
+    width: 20vw;
+    text-align: center;
+    background-image: linear-gradient(to right, #6782B4 , #B1BFD8)
+
+}
+
+.profile-pic3{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.info-team-memeber{
+    width: 15vw;
+    font-size: 20px;
+}
+.member-name{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.about-title{
+    text-align: center;
+    font-size: 75px;
+    margin-bottom: 50px;
+    color: #6782B4;
+}
+
+.about-txt{
+    background-image: linear-gradient(to right, #6782B4 , #B1BFD8);
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+

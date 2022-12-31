@@ -46,6 +46,40 @@
 .fa-regular::before{
     font-family: fa-regular;
 }
+
+.fa-solid::before{
+    font-family: fa-solid;
+}
+
+
+.fa-brands.linkedin::before{
+    content: "\f0e1";
+    color: #ffffff;
+    font-size: 25px;
+    padding: 7px;
+    /* border: 1px solid black; */
+   
+}
+.fa-brands.twitter::before{
+    content: "\f099";
+    color: #ffffff;
+    font-size: 25px;
+    padding: 7px;
+    /* border: 1px solid black; */
+   
+}
+.fa-brands.instagram::before{
+    content: "\f16d";
+    color: #ffffff;
+    font-size: 25px;
+    padding: 7px;
+    /* border: 1px solid black; */
+   
+}
+
+
+
+
 .fa-regular.envelope::before{
     content: "\f0e0";
     color: #5f6368;
