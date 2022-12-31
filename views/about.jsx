@@ -1,7 +1,5 @@
-const { Link, NavLink } = ReactRouterDOM
 
 import { utilService } from "../services/util.service.js"
-
 
 export function About() {
     return <section className="about">
@@ -16,8 +14,6 @@ export function About() {
             <h3 className="team-title">Our team</h3>
             <div className="team">
            
-             
-             
                 <article className="team-member">
                     <h3 className="member-name">Yonatan Finerman</h3>
                     <img src="./assets/img/person.webp" className="profile-pic3" alt="" />
@@ -27,7 +23,6 @@ export function About() {
                         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" className="fa-brands twitter"></a>
                         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" className="fa-brands instagram"></a>
                   
-                       
                     </nav>
                 </article>
                 <article className="team-member">

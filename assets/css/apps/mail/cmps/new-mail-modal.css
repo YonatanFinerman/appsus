@@ -8,23 +8,16 @@
     background-color: white;
     border-radius: 10px;
     padding:0 10px;
-
-
 }
 
 .mail-modal-title{
     color: #041e49;
 }
 
-
-
-
-
 .mail-modal-header{
     align-items: center;
     justify-content: space-between;
     display: flex;
-    /* background: none; */
     border: 10px;
 }
 
@@ -39,7 +32,6 @@
 
 .modal-opening-btns-cont{
     flex-basis: 20%;
-    
 }
 
 .mail-modal-header button{
@@ -49,7 +41,6 @@
     padding: 5px;
 }
 .mail-modal-header button:hover{
-    
     background: #dadce0;
 }
 
@@ -60,6 +51,7 @@
     background: none;
     padding: 10px 0;
 }
+
 .mail-to-input:focus{
     content: "To";
     outline: none;
@@ -70,9 +62,7 @@
     border: none;
     padding: 10px 0;
     resize: none;
-  
     height: 290px;
-
 }
 
 .mail-body-input:focus{
@@ -83,7 +73,6 @@
     display: flex;
     align-items: center;
     margin: 20px 0;
-    
 }
 
 .mail-modal-footer button:not(.mail-modal-send-btn){
@@ -91,18 +80,11 @@
     background: none;
     cursor: pointer;
     font-size: 16px;
-    
 }
-
-
-
-
 
 .modal-delete-btn{
     margin-left: 90px;
-    
 }
-
 
 .mail-modal-send-btn{
     color: white;
@@ -113,19 +95,16 @@
     width: 100px;
     margin-right: 20px;
     cursor: pointer;
-
 }
 
 .mail-modal-send-btn:hover{
     background-color: #0b57d0c7;
 }
 
-
 .mail-modal-header-container{
     position: fixed;
     bottom: 0;
     right: 20px;
-  
     width: 350px;
     border-radius: 10px;
     box-shadow: inset  1px 0 0 #dadce0,-1px 0 0 #dadce0,0 1px 2px 0 rgb(60 64 67 / 30%);

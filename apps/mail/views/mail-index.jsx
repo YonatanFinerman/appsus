@@ -5,21 +5,14 @@ import { MailList } from "../cmps/mail-list.jsx"
 import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailSideBar } from "../cmps/mail-sidebar.jsx"
 import { NewMailModal } from "../cmps/new-mail-modal.jsx"
-// import { MailHome } from "./mail.home.jsx"
 
 import { mailService } from "../services/mail.service.js"
-import { utilService } from "../../../services/util.service.js"
 
 export function MailIndex() {
-
     const [mailFilterBy, onSetMailFilter] = useState([mailService.getDefaultCriteria()])
     const [mails, setMails] = useState([])
-    // const [starredMails,setStarredMails] = useState()
-
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [isNewModal, setIsNewModal] = useState(true)
-
-
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -31,7 +24,6 @@ export function MailIndex() {
     function loadMails() {
         mailService.query(mailFilterBy).then((mailsToUpdate) => {
             setMails(mailsToUpdate)
-
         })
     }
 
@@ -40,7 +32,6 @@ export function MailIndex() {
         mailService.get(mailId).then(mail => {
             mail.isRead = true
             mailService.save(mail).then(() => {
-
                 navigate(`/mail/${mailId}`)
             })
 
@@ -48,8 +39,6 @@ export function MailIndex() {
             .catch(err => {
                 console.error('there was an error with the id')
             })
-
-
     }
 
     function onDeleteMailClick(mailId) {
@@ -60,23 +49,27 @@ export function MailIndex() {
             .catch(err => {
                 console.error('there was an error with the id')
             })
-
     }
+
     function onToggleRead(mailId) {
         mailService.get(mailId).then(mail => {
             mail.isRead = !mail.isRead
             mailService.save(mail)
-
         })
-
     }
+    
     function onToggleStared(mailId) {
         mailService.get(mailId).then(mail => {
             mail.isStared = !mail.isStared
             mailService.save(mail)
-
         })
+    }
 
+    function onToggleSelect(mailId){
+        mailService.get(mailId).then(mail => {
+            mail.isSelected = !mail.isSelected 
+            mailService.save(mail)
+        })
     }
 
     function onComposeClick() {
@@ -93,11 +86,10 @@ export function MailIndex() {
     }
 
     function onSendMail(val) {
-        
         const user = mailService.getLoggedInUser()
         const { subject, body, to } = val
         const { name, email: from } = user
-        
+    
         const newMail = {
             subject,
             body,
@@ -106,32 +98,23 @@ export function MailIndex() {
             from,
             isRead:false,
             isStared:false,
+            isSelected:false,
             sentAt:Date.now()
         }
+
         console.log('new mailll',newMail)
         mailService.save(newMail).then(()=>{
-
             loadMails()
-            // loadmails isNeedInCase we are on the sent mail page 
-            // later use loadmails or setmails by checking on the current mails array if its a sent mail a inbox mail
         })
-
     }
 
-
-
-
     return <main className="mail-index-container">
-
         <MailSideBar onSetMailFilter={onSetMailFilter} mailFilterBy={mailFilterBy} onComposeClick={onComposeClick} />
-
         <div className="mail-content-container">
-            <MailFilter onSetMailFilter={onSetMailFilter} />
+            <MailFilter onSetMailFilter={onSetMailFilter} mails={mails} />
             <MailList mails={mails} onMailPreviewClick={onMailPreviewClick}
-                onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} />
-
+                onDeleteMailClick={onDeleteMailClick} onToggleRead={onToggleRead} onToggleStared={onToggleStared} onToggleSelect={onToggleSelect}/>
         </div>
-
         {(isModalOpen || !isNewModal) && <NewMailModal isModalOpen={isModalOpen} isNewModal={isNewModal} onSendMail={onSendMail} setIsNewModal={setIsNewModal} setIsModalOpen={setIsModalOpen} />}
     </main>
 }

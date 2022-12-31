@@ -24,19 +24,20 @@ nav a.active {
     font-weight: bold;
     text-decoration: overline;
 }
+
 .logo{
     text-transform:uppercase ;
     font-weight: bolder;
     background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 30px;
 }
 
 .profile-pic1{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-   
 }
 
 .header-modal{
@@ -53,13 +54,10 @@ nav a.active {
     place-content: center;
 }
 
-
-
 .header-modal img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* border: 1px solid black; */
     cursor: pointer;
 }
 
@@ -68,8 +66,8 @@ nav a.active {
     gap: 20px;
     align-items: center;
 }
-.header-nav button{
 
+.header-nav button{
     background: none;
     border: none;
     cursor: pointer;

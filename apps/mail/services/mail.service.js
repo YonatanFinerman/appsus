@@ -4,7 +4,6 @@ import { storageService } from '../../../services/async-storage.service.js'
 const MAIL_KEY = 'mailDB'
 _createMails()
 
-
 export const mailService = {
     query,
     get,
@@ -19,29 +18,6 @@ function getEmptymail(){
     return {to:'',subject:'',body:''}
 }
 
-// function query(filterBy = getDefaultFilter()) {
-//     return storageService.query(BOOK_KEY)
-//         .then(books => {
-//             if (filterBy.title) {
-//                 const regex = new RegExp(filterBy.title, 'i')
-//                 books = books.filter(book => regex.test(book.title))
-//             }
-//             if (filterBy.amount) {
-//                 console.log(books, filterBy.amount)
-//                 books = books.filter(book => book.listPrice.amount >= filterBy.amount)
-//             }
-//             return books
-//         })
-// }
-
-// getMailsIdx()
-
-// function getMailsIdx(mail){
-//     const mails = localStorage.getItem(MAIL_KEY)
-//     console.log('these are mailssss')
-// }
-
-
 function getDefaultCriteria() {
     return { isRead: false, txt: '', isStared: false, lables: [], status: 'inbox' }
 }
@@ -54,6 +30,12 @@ function query(filterBy = getDefaultCriteria()) {
             mails.sort((a, b) => {
                 return b.sentAt - a.sentAt
             })
+            if(filterBy.isRead==="false"){
+                mails = mails.filter(mail=>!mail.isRead)
+            }
+            if(filterBy.isRead==="true"){
+                mails = mails.filter(mail=>mail.isRead)
+            }
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.subject) || regex.test(mail.body) || regex.test(mail.name))
@@ -67,24 +49,12 @@ function query(filterBy = getDefaultCriteria()) {
             if (filterBy.isStared){
                 mails = mails.filter(mail=>mail.isStared)
             }
-
-
-            // if (filterBy.amount) {
-            //     console.log(books, filterBy.amount)
-            //     books = books.filter(book => book.listPrice.amount >= filterBy.amount)
-            // }
             return mails
         })
 }
 
-// function query() {
-//     return storageService.query(MAIL_KEY)
-// }
-
-
 function get(mailId) {
     let mail = storageService.get(MAIL_KEY, mailId)
-    console.log('get', mail)
     return mail
 
 }
@@ -94,7 +64,6 @@ function remove(mailId) {
 }
 
 function save(mail) {
-    // console.log(mail)
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
@@ -102,27 +71,12 @@ function save(mail) {
     }
 }
 
-
-
-// function getDefaultFilter() {
-//     return { title: '', amount: '' }
-// }
-
-// function getEmptyReview(){
-//   return {reviewrName:'',score:'',reviewTxt:''}
-// }
-
-
-
-
 function getLoggedInUser(){
     return {
         email: 'user@appsus.com',
         name: 'Mahatma Appsus'
     }
 }
-
-
 
 function _createMail(subject, name, body) {
     const user = getLoggedInUser()
@@ -137,6 +91,7 @@ function _createMail(subject, name, body) {
         from: `${name}@momo.com`,
         to:user.email,
         isStared:false,
+        isSelected:false,
     }
 }
 
@@ -226,44 +181,4 @@ function _createMails() {
 
     }
 }
-// function _createBooks() {
-//     let books = utilService.loadFromStorage(BOOK_KEY)
-//     console.log('from storage', books)
-//     if (!books || !books.length) {
-//         books = []
-//         books.push(_createBook('The alchemist'))
-//         books.push(_createBook('The hunger games'))
-//         books.push(_createBook('Think and grow rich'))        
-//         utilService.saveToStorage(BOOK_KEY, books)
-//         console.log('from reg', books)
-
-//     }
-// }
-
-
-
-
-// const criteria = {
-//     status: 'inbox/sent/trash/draft',
-//     txt: 'puki', // no need to support complex text search
-//     isRead: true, // (optional property, if missing: show all)
-//     isStared: true, // (optional property, if missing: show all)
-//     lables: ['important', 'romantic'] // has any of the labels
-//    }
-
-
-
-
-// const email = {
-//     id: 'e101',
-//     subject: 'Miss you!',
-//     body: 'Would love to catch up sometimes',
-//     isRead: false,
-//     sentAt: 1551133930594,
-//     to: 'momo@momo.com'
-// }
-
-
-
-
 

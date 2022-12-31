@@ -1,14 +1,11 @@
 
-
 .app-imgs-container{
     display: flex;
     gap: 10vw;
     margin-top: 15vh;
     padding: 4vw;
-    
-    
-   
 }
+
 .app-imgs-container img{
     width: 25vw;
     height:25vw;

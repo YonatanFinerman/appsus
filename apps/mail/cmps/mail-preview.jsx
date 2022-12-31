@@ -1,11 +1,9 @@
-const { useState, useEffect } = React
+const { useState } = React
 
 import { utilService } from "../../../services/util.service.js"
 
-export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onToggleRead, onToggleStared }) {
-    const { subject, body, sentAt, isRead, name, id, isStared } = mail
-
-
+export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onToggleRead, onToggleStared ,onToggleSelect}) {
+    const { subject, body, sentAt, isRead, name, id, isStared, } = mail
     const [isDate, setIsDate] = useState(true)
     const [read, setIsRead] = useState(isRead)
     const [stared, setIsStared] = useState(isStared)
@@ -48,9 +46,6 @@ export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onTog
         </div>
     }
 
-
-
-
     function HandleOverFlow({ bodyTxt, length }){
         
         if (bodyTxt.length>length){
@@ -58,16 +53,14 @@ export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onTog
         }
         else return <span className="mail-body">${bodyTxt}</span>
 
-
     }
 
 
     return <div className={`mail-preview ${(read) ? " read" : ""}`}
         onMouseOver={() => { setIsDate(false) }} onMouseOut={() => { setIsDate(true) }} >
         <div className="mail-prev-actions" >
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" onChange={()=>{onToggleSelect(id)}}/>
             <button className={`mail-star fa-${(stared) ? "solid" : "regular"} star`} onClick={() => {
-
                 onToggleStared(id)
                 setIsStared(prev => !prev)
             }}></button>
@@ -79,6 +72,5 @@ export function MailPreview({ mail, onMailPreviewClick, onDeleteMailClick, onTog
             <span className="mail-prev-body">{body}</span>
         </div>
         <DateOrBtns />
-
     </div>
 }

@@ -3,9 +3,6 @@
     background: rgb(246, 248, 248);
     display: flex;
     flex-direction: column;
-    /* position: fixed; */
-
-   
 }
 
 .compose-btn{
@@ -22,8 +19,6 @@
    display: flex;
    gap: 10px;
    justify-content: center;
-   
-  
 }
 
 .compose-btn:hover{
@@ -42,15 +37,12 @@
     background: none;
     padding: 10px 1.17vw;
     width: 90%;
-   
     border-top-left-radius: 0; /* 50% of height */
     border-bottom-left-radius: 0; /* 50% of height */
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-
     display: flex;
     gap: 10px;
-    
 }
 
 .mail-nav button.side-bar-active{
@@ -61,33 +53,26 @@
     background-color: rgb(237, 235, 235);
 }
 
-
 @media (max-width: 1300px) {
     .compose-btn{
         font-size: 12px;
         width: 90%;
-        /* gap: 10px;
-        margin-left: 0;
-        flex-direction:column-reverse ;
-        align-items: center;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    } */
 }
 }
+
 @media (max-width: 700px) {
 .nav-btn-txt{
     display: none;
 }
+
 .compose-btn{
     padding: 10px 0;
     margin-left: 0;
-    border-top-left-radius: 0; /* 50% of height */
-    border-bottom-left-radius: 0; /* 50% of height */
+    border-top-left-radius: 0; 
+    border-bottom-left-radius: 0; 
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
-
 }
 
 
