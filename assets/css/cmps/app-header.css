@@ -75,6 +75,7 @@ nav a.active {
     cursor: pointer;
     height: 50px;
     width: 50px;
+    padding-top: 5px;
 }
 
 .menu-btn{

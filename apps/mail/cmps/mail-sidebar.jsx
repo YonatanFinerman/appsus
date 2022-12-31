@@ -21,11 +21,11 @@ function onSent(){
     return <section className="mail-sidebar">
        <button className=' compose-btn ' onClick={onComposeClick}><span className="fa-solid pen"></span> &nbsp;&nbsp;&nbsp; Compose</button>
        <nav className="mail-nav"> 
-        <button className={`fa-regular inbox-nav ${(status==="inbox") ? "side-bar-active" : ""}`} title="Inbox" onClick={onInbox} > &nbsp;&nbsp;&nbsp; Inbox</button>
+        <button className={` ${(status==="inbox") ? "side-bar-active" : ""}`} title="Inbox" onClick={onInbox} ><span className="fa-regular inbox-nav"></span> &nbsp;&nbsp;&nbsp; Inbox</button>
         {/* <button className="fa-regular inbox-nav" title="Inbox" onClick={onInbox} > &nbsp;&nbsp;&nbsp; Inbox</button> */}
-        <button className={`fa-regular star-nav ${(isStared) ? "side-bar-active" : ""}`} title="Stared" onClick={onStared}><span></span>&nbsp;&nbsp;&nbsp; Starred</button>
+        <button className={` ${(isStared) ? "side-bar-active" : ""}`} title="Stared" onClick={onStared}><span className="fa-regular star-nav"></span>&nbsp;&nbsp;&nbsp; Starred</button>
         {/* <button className={`fa-regular star-nav`} title="Starred" onClick={onStared}><span></span>&nbsp;&nbsp;&nbsp; Starred</button> */}
-        <button className={`fa-regular sent-nav ${(status==="sent") ? "side-bar-active" : ""}`} onClick={onSent} title="Sent">&nbsp;&nbsp;&nbsp; Sent</button>
+        <button className={` ${(status==="sent") ? "side-bar-active" : ""}`} onClick={onSent} title="Sent"><span className="fa-regular sent-nav"></span> &nbsp;&nbsp;&nbsp; Sent</button>
         
        </nav>
     </section>
