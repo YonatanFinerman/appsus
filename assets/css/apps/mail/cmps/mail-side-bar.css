@@ -18,15 +18,11 @@
    margin-bottom: 20px;
    font-weight: bolder;
    text-align: left;
-
-   
-   
-   
-
+  
 }
+
 .compose-btn:hover{
     cursor: pointer;
-    
     box-shadow: inset  1px 0 0 #dadce0,-1px 0 0 #dadce0,0 1px 2px 0 rgb(60 64 67 / 30%);
 }
 
@@ -41,8 +37,7 @@
     background: none;
     padding: 10px 30px;
     width: 90%;
-    font-size: 1rem !important;
-    font-family: Roboto !important;
+   
     border-top-left-radius: 0; /* 50% of height */
     border-bottom-left-radius: 0; /* 50% of height */
     border-top-right-radius: 50px;
