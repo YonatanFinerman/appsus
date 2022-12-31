@@ -38,21 +38,21 @@ html{
 
 .fa-brands.linkedin::before{
     content: "\f0e1";
-    color: #ffffff;
+    color: var(--clr02);
     font-size: 25px;
     padding: 7px;
 }
 
 .fa-brands.twitter::before{
     content: "\f099";
-    color: #ffffff;
+    color: var(--clr02);
     font-size: 25px;
     padding: 7px; 
 }
 
 .fa-brands.instagram::before{
     content: "\f16d";
-    color: #ffffff;
+    color: var(--clr02);
     font-size: 25px;
     padding: 7px;
     
@@ -60,59 +60,59 @@ html{
 
 .fa-regular.envelope::before{
     content: "\f0e0";
-    color: #5f6368;  
+    color: var(--clr03);  
 }
 
 .fa-regular.envelope-open::before{
     content: "\f2b6";
-    color: #5f6368;
+    color: var(--clr03);
 }
 
 .fa-regular.trash-can::before{
     content: "\f2ed";
-    color: #5f6368;
+    color: var(--clr03);
 }
 
 .fa-regular.trash-can-black::before{
     content: "\f2ed";
-    color: #000000;
+    color: var(--clr01);
    
 }
 
 .fa-solid.go-back::before{
     content: "\f060";
-    color: #000000;  
+    color: var(--clr01);  
 }
 
 .fa-solid.search::before{
     content: "\f002";
-    color: #000000;
+    color: var(--clr01);
 }
 
 .fa-solid.angle-right::before{
     content: "\f105";
-    color: #000000;
+    color: var(--clr01);
    
 }
 
 .fa-solid.angle-left::before{
     content: "\f104";
-    color: #000000;  
+    color: var(--clr01);  
 }
 
 .fa-regular.star::before{
     content: "\f005";
-    color: #5f6368; 
+    color: var(--clr03); 
 }
 
 .fa-regular.img-icon::before{
     content: "\f03e";
-    color: black;    
+    color: var(--clr01);    
 }
 
 .fa-regular.sign-icon::before{
     content: "\f5ac";
-    color: black; 
+    color: var(--clr01); 
 }
 
 .fa-solid.star::before{
@@ -122,76 +122,76 @@ html{
 
 .fa-regular.pen::before{
     content: "\f2ed";
-    color: #5f6368;    
+    color: var(--clr03);    
 }
 
 .fa-regular.star-nav::before{
     content: "\f005";
-    color: black; 
+    color: var(--clr01); 
 }
 
 .fa-regular.sent-nav::before{
     content: "\f1d8";
-    color: black; 
+    color: var(--clr01); 
 }
 
 .fa-regular.inbox-nav::before{
     content: "\f0e0";
-    color: black; 
+    color: var(--clr01); 
 }
 
 .fa-solid.pen::before{
     content: "\f304";
-    color: black;
+    color: var(--clr01);
 }
 
 .fa-solid.options::before{
     content: "\f013";
-    color: black;
+    color: var(--clr01);
 }
 
 .fa-solid.more-options::before{
     content: "\f142";
-    color: black;
+    color: var(--clr01);
 }
 
 .fa-solid.caps::before{
     content: "\41";
-    color: black;
+    color: var(--clr01);
 }
 
 .fa-solid.lock::before{
     content: "\f023";
-    color: black;
+    color: var(--clr01);
 }
 
 .fa-solid.pin::before{
     content: "\f0c6";
-    color: black;
+    color: var(--clr01);
 }
 
 .fa-solid.link::before{
     content: "\f0c1";
-    color: black;
+    color: var(--clr01);
 }
 
 .fa-regular.emoji::before{
     content: "\f118";
-    color: black;
+    color:var(--clr01);
 }
 
 .fa-solid.minus::before{
     content: "\f068";
-    color: #5f6368;
+    color: var(--clr03);
 }
 
 .fa-solid.double-arrow::before{
     content: "\f047";
-    color: #5f6368;
+    color: var(--clr03);
 }
 
 .fa-solid.x::before{
     content: "\f00d";
-    color: #5f6368;
+    color: var(--clr03);
 }
 

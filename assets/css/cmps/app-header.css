@@ -1,5 +1,5 @@
 header {
-    background: rgb(246, 248, 248);
+    background: var(--bgclr01);
     
 }
 
@@ -11,7 +11,7 @@ header {
     align-items: center;
 }
 
-nav a {
+/* nav a {
     margin: .5em;
 }
 
@@ -23,7 +23,7 @@ nav a.active {
     color: darkblue;
     font-weight: bold;
     text-decoration: overline;
-}
+} */
 
 .logo{
     text-transform:uppercase ;
@@ -44,7 +44,7 @@ nav a.active {
     position:fixed ;
     top: 55px;
     right: 0px;
-    background: rgb(246, 248, 248);
+    background: var(--bgclr01);
     width: 150px;
     height: 200px;
     border-radius: 10px;

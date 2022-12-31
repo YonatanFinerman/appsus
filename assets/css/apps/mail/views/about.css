@@ -1,21 +1,21 @@
 
 .about{
-   background-color: black;
+   background-color: var(--clr01);
    height: 40vw;
-   background-color: rgb(246, 248, 248);
+   background-color: var(--bgclr01);
 }
 
 .about-ifno{
     margin: auto;
     width: 50vw;
-    background-color: rgb(246, 248, 248);
+    background-color: var(--bgclr01);
 }
 
 .team-title{
     margin: 50px;
     text-align: center;
     font-size: 50px;
-    color: #6782B4;
+    color: var(--clr04);
 }
 
 .team{
@@ -25,7 +25,7 @@
 }
 
 .team-member{
-    color: white;
+    color: var(--clr02);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -33,7 +33,7 @@
     border-radius: 20px;
     width: 20vw;
     text-align: center;
-    background-image: linear-gradient(to right, #6782B4 , #B1BFD8);
+    background-image: linear-gradient(to right, var(--clr04) , #B1BFD8);
 }
 
 .profile-pic3{
@@ -57,12 +57,12 @@
     text-align: center;
     font-size: 75px;
     margin-bottom: 50px;
-    color: #6782B4;
+    color: var(--clr04);
 }
 
 .about-txt{
-    background-image: linear-gradient(to right, #6782B4 , #B1BFD8);
-    color: white;
+    background-image: linear-gradient(to right, var(--clr04) , #B1BFD8);
+    color: var(--clr02);
     padding: 10px;
     font-size: 20px;
     border-radius: 10px;
