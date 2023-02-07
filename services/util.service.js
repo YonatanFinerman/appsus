@@ -62,7 +62,8 @@ function getRandomColor() {
 
 function getDayName(date, locale) {
     date = new Date(date)
-    return date.toLocaleDateString(locale, { weekday: 'long' })
+    return date.toLocaleDateString({ weekday: 'long' })
+    // return date.toLocaleDateString(locale, { weekday: 'long' })
 }
 
 

@@ -103,6 +103,7 @@ html{
 .fa-regular.star::before{
     content: "\f005";
     color: var(--clr03); 
+    
 }
 
 .fa-regular.img-icon::before{
